@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Ad-Hoc|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CoconutCalendar/Screens/Schedule/cc_Schedule_AddNew.cs">
+    <Files>
+      <File FileName="CoconutCalendar/WebRequest/HttpWebRequestClient.cs" Line="184" Column="31" />
+      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule.cs" Line="99" Column="22" />
+      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule_AddNew.cs" Line="265" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/Wen/Projects/Project/CoconutCalendarAdmin/CoconutCalendarAdmin/Controllers/CoconutScheduleAddViewController.cs" line="421" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../Projects/Madmuc/MADMUCfarm 3/MadmucFarm/LocalStorage/LocalStorage.cs" line="337" offsetX="383" offsetY="5040" expression="seedAll" liveUpdate="False" />
+    <Watch file="CoconutCalendar/Screens/Schedule/cc_Schedule_AddNew.cs" line="256" offsetX="737" offsetY="3825" expression="locationList" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>

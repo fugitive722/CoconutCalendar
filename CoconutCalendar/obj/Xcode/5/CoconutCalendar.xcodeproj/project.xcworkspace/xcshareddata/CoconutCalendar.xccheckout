@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>33FA1932-AA6B-4F8F-9114-50BCC6ED55E3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CoconutCalendar</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FA199CF4-3673-4A50-A4B1-B8EA4B1018C0</key>
+		<string>https://github.com/fugitive722/CoconutCalendar.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CoconutCalendar/obj/Xcode/5/CoconutCalendar.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FA199CF4-3673-4A50-A4B1-B8EA4B1018C0</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/fugitive722/CoconutCalendar.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FA199CF4-3673-4A50-A4B1-B8EA4B1018C0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FA199CF4-3673-4A50-A4B1-B8EA4B1018C0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CoconutCalendar</string>
+		</dict>
+	</array>
+</dict>
+</plist>

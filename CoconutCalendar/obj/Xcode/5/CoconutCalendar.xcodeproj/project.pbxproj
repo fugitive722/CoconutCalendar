@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3CA1758B0000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 328229000000000000000000 /* UIKit.framework */; };
+		1E3718BE0000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C8255C0000000000000000 /* MapKit.framework */; };
+		336A81560000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FB8DF40000000000000000 /* Foundation.framework */; };
+		26D5639F0000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A66703D0000000000000000 /* CoreGraphics.framework */; };
+		1D9939C70000000000000000 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 212A46650000000000000000 /* Default-568h@2x.png */; };
+		32CCA25F0000000000000000 /* CoconutCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365DAEFD0000000000000000 /* CoconutCalendarViewController.xib */; };
+		1B517BB20000000000000000 /* cc_Schedule.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EE288500000000000000000 /* cc_Schedule.xib */; };
+		193CA0B90000000000000000 /* cc_Client.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CCDAD570000000000000000 /* cc_Client.xib */; };
+		1005AC840000000000000000 /* cc_Schedule_AppointmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1396B9220000000000000000 /* cc_Schedule_AppointmentCell.xib */; };
+		1181DE290000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 1512EAC70000000000000000 /* AppDelegate.h */; };
+		2F8674BE0000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3317815C0000000000000000 /* AppDelegate.m */; };
+		4B9DD5600000000000000000 /* CoconutCalendarViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 84AE9F400000000000000000 /* CoconutCalendarViewController.h */; };
+		165C39500000000000000000 /* CoconutCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19ED45EE0000000000000000 /* CoconutCalendarViewController.m */; };
+		1B9C5AAF0000000000000000 /* cc_Schedule.h in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D674D0000000000000000 /* cc_Schedule.h */; };
+		B76305A00000000000000000 /* cc_Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = F073CF800000000000000000 /* cc_Schedule.m */; };
+		10B651B90000000000000000 /* cc_Client.h in Sources */ = {isa = PBXBuildFile; fileRef = 14475E570000000000000000 /* cc_Client.h */; };
+		2B29DBB00000000000000000 /* cc_Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBAE84E0000000000000000 /* cc_Client.m */; };
+		92E724500000000000000000 /* cc_Schedule_AppointmentCell.h in Sources */ = {isa = PBXBuildFile; fileRef = CBF7EE300000000000000000 /* cc_Schedule_AppointmentCell.h */; };
+		18EED6620000000000000000 /* cc_Schedule_AppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FE3000000000000000000 /* cc_Schedule_AppointmentCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1AF3D6770000000000000000 /* CoconutCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "CoconutCalendar.app"; path = "CoconutCalendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		328229000000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		21C8255C0000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		36FB8DF40000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		2A66703D0000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		212A46650000000000000000 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		365DAEFD0000000000000000 /* CoconutCalendarViewController.xib */ = {isa = PBXFileReference; name = "CoconutCalendarViewController.xib"; path = "CoconutCalendarViewController.xib"; sourceTree = "<group>"; };
+		1EE288500000000000000000 /* cc_Schedule.xib */ = {isa = PBXFileReference; name = "cc_Schedule.xib"; path = "Screens/Schedule/cc_Schedule.xib"; sourceTree = "<group>"; };
+		1CCDAD570000000000000000 /* cc_Client.xib */ = {isa = PBXFileReference; name = "cc_Client.xib"; path = "Screens/Client/cc_Client.xib"; sourceTree = "<group>"; };
+		1396B9220000000000000000 /* cc_Schedule_AppointmentCell.xib */ = {isa = PBXFileReference; name = "cc_Schedule_AppointmentCell.xib"; path = "Screens/Schedule/cc_Schedule_AppointmentCell.xib"; sourceTree = "<group>"; };
+		1512EAC70000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		3317815C0000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+		84AE9F400000000000000000 /* CoconutCalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CoconutCalendarViewController.h"; path = "CoconutCalendarViewController.h"; sourceTree = "<group>"; };
+		19ED45EE0000000000000000 /* CoconutCalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CoconutCalendarViewController.m"; path = "CoconutCalendarViewController.m"; sourceTree = "<group>"; };
+		1F2D674D0000000000000000 /* cc_Schedule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "cc_Schedule.h"; path = "cc_Schedule.h"; sourceTree = "<group>"; };
+		F073CF800000000000000000 /* cc_Schedule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "cc_Schedule.m"; path = "cc_Schedule.m"; sourceTree = "<group>"; };
+		14475E570000000000000000 /* cc_Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "cc_Client.h"; path = "cc_Client.h"; sourceTree = "<group>"; };
+		2EBAE84E0000000000000000 /* cc_Client.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "cc_Client.m"; path = "cc_Client.m"; sourceTree = "<group>"; };
+		CBF7EE300000000000000000 /* cc_Schedule_AppointmentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "cc_Schedule_AppointmentCell.h"; path = "cc_Schedule_AppointmentCell.h"; sourceTree = "<group>"; };
+		1C7FE3000000000000000000 /* cc_Schedule_AppointmentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "cc_Schedule_AppointmentCell.m"; path = "cc_Schedule_AppointmentCell.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37AF1E830000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CA1758B0000000000000000 /* UIKit.framework in Frameworks */,
+				1E3718BE0000000000000000 /* MapKit.framework in Frameworks */,
+				336A81560000000000000000 /* Foundation.framework in Frameworks */,
+				26D5639F0000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17C890110000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				262445D00000000000000000 /* CoconutCalendar */,
+				260CC2890000000000000000 /* Frameworks */,
+				D156A3700000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D156A3700000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1AF3D6770000000000000000 /* CoconutCalendar.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		260CC2890000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				328229000000000000000000 /* UIKit.framework */,
+				21C8255C0000000000000000 /* MapKit.framework */,
+				36FB8DF40000000000000000 /* Foundation.framework */,
+				2A66703D0000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		262445D00000000000000000 /* CoconutCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				1512EAC70000000000000000 /* AppDelegate.h */,
+				14475E570000000000000000 /* cc_Client.h */,
+				1F2D674D0000000000000000 /* cc_Schedule.h */,
+				CBF7EE300000000000000000 /* cc_Schedule_AppointmentCell.h */,
+				84AE9F400000000000000000 /* CoconutCalendarViewController.h */,
+				365DAEFD0000000000000000 /* CoconutCalendarViewController.xib */,
+				212A46650000000000000000 /* Default-568h@2x.png */,
+				61E131A00000000000000000 /* Screens */,
+				31686C9B0000000000000000 /* Supporting Files */,
+			);
+			name = "CoconutCalendar";
+			sourceTree = "<group>";
+		};
+		61E131A00000000000000000 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2780D3310000000000000000 /* Client */,
+				30B7C7660000000000000000 /* Schedule */,
+			);
+			name = "Screens";
+			sourceTree = "<group>";
+		};
+		30B7C7660000000000000000 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				1EE288500000000000000000 /* cc_Schedule.xib */,
+				1396B9220000000000000000 /* cc_Schedule_AppointmentCell.xib */,
+			);
+			name = "Schedule";
+			sourceTree = "<group>";
+		};
+		2780D3310000000000000000 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				1CCDAD570000000000000000 /* cc_Client.xib */,
+			);
+			name = "Client";
+			sourceTree = "<group>";
+		};
+		31686C9B0000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3317815C0000000000000000 /* AppDelegate.m */,
+				2EBAE84E0000000000000000 /* cc_Client.m */,
+				F073CF800000000000000000 /* cc_Schedule.m */,
+				1C7FE3000000000000000000 /* cc_Schedule_AppointmentCell.m */,
+				19ED45EE0000000000000000 /* CoconutCalendarViewController.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		232C5B200000000000000000 /* CoconutCalendar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1040B09D0000000000000000 /* Build configuration list for PBXNativeTarget "CoconutCalendar" */;
+			buildPhases = (
+				2248D2CF0000000000000000 /* Sources */,
+				37AF1E830000000000000000 /* Frameworks */,
+				B33725A00000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CoconutCalendar";
+			productName = "CoconutCalendar";
+			productReference = 1AF3D6770000000000000000 /* CoconutCalendar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		187935460000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1FC7E2500000000000000000 /* Build configuration list for PBXProject "CoconutCalendar" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17C890110000000000000000;
+			productRefGroup = D156A3700000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				232C5B200000000000000000 /* CoconutCalendar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B33725A00000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9939C70000000000000000 /* Default-568h@2x.png in Resources */,
+				32CCA25F0000000000000000 /* CoconutCalendarViewController.xib in Resources */,
+				1B517BB20000000000000000 /* cc_Schedule.xib in Resources */,
+				193CA0B90000000000000000 /* cc_Client.xib in Resources */,
+				1005AC840000000000000000 /* cc_Schedule_AppointmentCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2248D2CF0000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1181DE290000000000000000 /* AppDelegate.h in Sources */,
+				2F8674BE0000000000000000 /* AppDelegate.m in Sources */,
+				4B9DD5600000000000000000 /* CoconutCalendarViewController.h in Sources */,
+				165C39500000000000000000 /* CoconutCalendarViewController.m in Sources */,
+				1B9C5AAF0000000000000000 /* cc_Schedule.h in Sources */,
+				B76305A00000000000000000 /* cc_Schedule.m in Sources */,
+				10B651B90000000000000000 /* cc_Client.h in Sources */,
+				2B29DBB00000000000000000 /* cc_Client.m in Sources */,
+				92E724500000000000000000 /* cc_Schedule_AppointmentCell.h in Sources */,
+				18EED6620000000000000000 /* cc_Schedule_AppointmentCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		378AFCA00000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		3749584B0000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "CoconutCalendar";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FC7E2500000000000000000 /* Build configuration list for PBXProject "CoconutCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378AFCA00000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		1040B09D0000000000000000 /* Build configuration list for PBXNativeTarget "CoconutCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3749584B0000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 187935460000000000000000 /* Project object */;
+}

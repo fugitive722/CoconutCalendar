@@ -1,0 +1,8 @@
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/monotouch.dll
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/System.dll
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/MBProgressHUD.dll
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/mscorlib.dll
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/CoconutCalendar.exe
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/MonoTouch.Dialog-1.dll
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/System.Core.dll
+/Users/Wen/Projects/Madmuc/CoconutCalendar/CoconutCalendar/obj/iPhone/Ad-Hoc/mtouch-cache/Link/System.Json.dll
