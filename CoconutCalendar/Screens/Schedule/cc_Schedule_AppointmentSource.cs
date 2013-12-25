@@ -4,6 +4,7 @@ using System.Json;
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
+using MonoTouch.Dialog;
 
 namespace CoconutCalendar
 {
@@ -43,7 +44,10 @@ namespace CoconutCalendar
 
 		public override string TitleForHeader (UITableView tableView, int section)
 		{
-			return _source[section].hours.Hour.ToString();
+			//return _source[section].hours.Hour.ToString();
+			var timeE = new TimeElement ("Hours",_source[section].hours);
+			return timeE.Value;
+
 		}
 		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
 		{
@@ -52,7 +56,8 @@ namespace CoconutCalendar
 				var cellViews = NSBundle.MainBundle.LoadNib ("cc_Schedule_AppointmentCell",tableView,null);
 				cell = Runtime.GetNSObject (cellViews.ValueAt(0)) as cc_Schedule_AppointmentCell;
 			}
-
+			cell.labelService.Hidden = true;
+			cell.labelStart.Hidden = true;
 			if(_source.Count == 1){
 				cell.serviceNameLabel.Text = "Not Available";
 			}else{
@@ -78,8 +83,10 @@ namespace CoconutCalendar
 									cell.BackgroundColor = UIColor.LightGray;
 									//_selectedAppoint = i;
 									cell.appointment = i;
+									cell.startTimeLabel.Text = new TimeElement("start",getDatetimeFromHoursString(stripOffQuoatation(i["start"].ToString()))).Value;
 
-
+									cell.labelService.Hidden = false;
+									cell.labelStart.Hidden = false;
 								}
 
 							} else {
@@ -90,7 +97,9 @@ namespace CoconutCalendar
 								cell.BackgroundColor = UIColor.LightGray;
 								//_selectedAppoint = i;
 								cell.appointment = i;
-
+								cell.startTimeLabel.Text = new TimeElement("start",getDatetimeFromHoursString(stripOffQuoatation(i["start"].ToString()))).Value;
+								cell.labelService.Hidden = false;
+								cell.labelStart.Hidden = false;
 							}
 
 						}
@@ -107,8 +116,10 @@ namespace CoconutCalendar
 									cell.Accessory = UITableViewCellAccessory.DetailButton;
 									cell.BackgroundColor = UIColor.LightGray;
 
-									//_selectedAppoint = i;
 									cell.appointment = i;
+									cell.startTimeLabel.Text = new TimeElement("start",getDatetimeFromHoursString(stripOffQuoatation(i["start"].ToString()))).Value;
+									cell.labelService.Hidden = false;
+									cell.labelStart.Hidden = false;
 								}
 							} else {
 								cell.serviceNameLabel.Text = i["service"] ["name"].ToString ();
@@ -119,6 +130,9 @@ namespace CoconutCalendar
 
 								//_selectedAppoint = i;
 								cell.appointment = i;
+								cell.startTimeLabel.Text = new TimeElement("start",getDatetimeFromHoursString(stripOffQuoatation(i["start"].ToString()))).Value;
+								cell.labelService.Hidden = false;
+								cell.labelStart.Hidden = false;
 							} 
 						}
 					}
@@ -157,7 +171,7 @@ namespace CoconutCalendar
 
 			if(cell.appointment != null){
 				if (cell.appointment ["type"].ToString ().Replace("\"",string.Empty) == "0") {
-					_navi.PushViewController (new cc_Schedule_AddNew (true, cell.appointment, cell.date, _location), true);
+					_navi.PushViewController (new cc_Schedule_AddNew (true, cell.appointment, cell.date, _location,"Edit"), true);
 
 				} else {
 					_navi.PushViewController (new cc_Schedule_Personal("",cell.date,_location),true);
@@ -166,6 +180,11 @@ namespace CoconutCalendar
 			}
 		}
 
+
+		public override float GetHeightForRow (UITableView tableView, NSIndexPath indexPath)
+		{
+			return 60f;
+		}
 		#endregion
 		public DateTime getDatetimeFromHoursString (string s){
 			var tempS = s.Split(' ');

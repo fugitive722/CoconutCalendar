@@ -1,10 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Ad-Hoc|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CoconutCalendar/Screens/Schedule/cc_Schedule_AddNew.cs">
     <Files>
-      <File FileName="CoconutCalendar/WebRequest/HttpWebRequestClient.cs" Line="184" Column="31" />
-      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule.cs" Line="99" Column="22" />
-      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule_AddNew.cs" Line="265" Column="3" />
+      <File FileName="CoconutCalendar/WebRequest/HttpWebRequestClient.cs" Line="1" Column="1" />
+      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule_AddNew.cs" Line="249" Column="16" />
+      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule.cs" Line="1" Column="1" />
+      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule_AppointmentSource.cs" Line="1" Column="1" />
+      <File FileName="CoconutCalendar/Screens/Schedule/cc_Schedule_AddMenue.cs" Line="31" Column="115" />
+      <File FileName="CoconutCalendar/Screens/Schedule/CalendarMonthView.cs" Line="96" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

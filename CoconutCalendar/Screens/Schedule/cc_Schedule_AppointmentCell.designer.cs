@@ -13,16 +13,29 @@ namespace CoconutCalendar
 	partial class cc_Schedule_AppointmentCell
 	{
 		[Outlet]
-		public MonoTouch.UIKit.UILabel endTimeLabel { get; set; }
+		public MonoTouch.UIKit.UILabel labelService { get; private set; }
 
 		[Outlet]
-		public MonoTouch.UIKit.UILabel serviceNameLabel { get; set; }
+		public MonoTouch.UIKit.UILabel labelStart { get; private set; }
 
 		[Outlet]
-		public MonoTouch.UIKit.UILabel startTimeLabel { get; set; }
+		public MonoTouch.UIKit.UILabel serviceNameLabel { get; private set; }
+
+		[Outlet]
+		public MonoTouch.UIKit.UILabel startTimeLabel { get; private set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (labelService != null) {
+				labelService.Dispose ();
+				labelService = null;
+			}
+
+			if (labelStart != null) {
+				labelStart.Dispose ();
+				labelStart = null;
+			}
+
 			if (serviceNameLabel != null) {
 				serviceNameLabel.Dispose ();
 				serviceNameLabel = null;
@@ -31,11 +44,6 @@ namespace CoconutCalendar
 			if (startTimeLabel != null) {
 				startTimeLabel.Dispose ();
 				startTimeLabel = null;
-			}
-
-			if (endTimeLabel != null) {
-				endTimeLabel.Dispose ();
-				endTimeLabel = null;
 			}
 		}
 	}

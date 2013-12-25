@@ -22,13 +22,13 @@ namespace CoconutCalendar
 					
 
 			
-						this.NavigationController.PushViewController (new cc_Schedule_AddNew (true,appointment,dt,location), true);
+						this.NavigationController.PushViewController (new cc_Schedule_AddNew (true,appointment,dt,location,"Add New"), true);
 
 						
 
 					}),
 					new StringElement ("Group", () => {
-						this.NavigationController.PushViewController (new cc_Schedule_AddNew (false,appointment,dt,location), true);
+						this.NavigationController.PushViewController (new cc_Schedule_AddNew (false,appointment,dt,location,"Add New"), true);
 
 					}),
 					//new EntryElement ("Name", "Enter your name", String.Empty)

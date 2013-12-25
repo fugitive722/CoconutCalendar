@@ -29,6 +29,7 @@ namespace CoconutCalendar
 		BooleanElement _notifyStaff;
 		BooleanElement _notifyClient;
 		FloatElementEx _limit;
+		StringElement _note;
 		SimpleMultilineEntryElement _notes;
 
 		Section serviceNames;
@@ -37,14 +38,44 @@ namespace CoconutCalendar
 		List<JsonValue> serviceNamesList = new List<JsonValue> ();
 		List<JsonValue> staffNamesList = new List<JsonValue> ();
 		//List<JsonValue> locationList = new List<JsonValue> ();
+		//List<JsonValue> servicesByLocation = new List<JsonValue> ();
+		List<JsonValue> serviceList = new List<JsonValue> ();
+		List<JsonValue> staffList = new List<JsonValue> ();
 
-		public cc_Schedule_AddNew (Boolean client, JsonValue appointment, DateTime dt, JsonValue location) : base (UITableViewStyle.Grouped, null)
+
+		//JsonValue servicesByID;
+		//double duration;
+
+		public cc_Schedule_AddNew (Boolean client, JsonValue appointment, DateTime dt, JsonValue location, string title) : base (UITableViewStyle.Grouped, null)
 		{
 
 			this.Pushing = true;
 			_appointment = appointment;
+			Root = new RootElement (title);
 
 
+
+			var _spinner = createSpinner ();
+			_spinner.Show (animated: true);
+			Task.Factory.StartNew (() => {
+
+				_spinner.Show(animated:true);
+				createDynamicLocationServiceStaffSectionSource (location);
+
+
+			}).ContinueWith(
+				t=>{
+					_spinner.Hide(animated:true,delay:0);
+					createUI (client,appointment,dt);
+
+				},TaskScheduler.FromCurrentSynchronizationContext()
+			);
+
+
+		}
+
+		public void createUI (Boolean client, JsonValue appointment, DateTime dt)
+		{
 			var _saveBtn = new UIBarButtonItem ();
 			_saveBtn.Title = "Save";
 			_saveBtn.Clicked += (object sender, EventArgs e) => {
@@ -52,21 +83,8 @@ namespace CoconutCalendar
 			};
 			this.NavigationItem.RightBarButtonItem = _saveBtn;
 
-			Root = new RootElement ("Add New");
 			var sectionG = new Section ();
 
-//			var _spinner = createSpinner ();
-//			_spinner.Show (animated: true);
-//			Task.Factory.StartNew (() => {
-//			
-//				_spinner.Show(animated:true);
-//
-//
-//			}).ContinueWith(
-//				t=>{
-//					_spinner.Hide(animated:true,delay:0);
-//				},TaskScheduler.FromCurrentSynchronizationContext()
-//			);
 
 			// set up client;
 			_client = new StringElement ("Client", ()=>{
@@ -90,25 +108,20 @@ namespace CoconutCalendar
 
 
 			// set up location
-			_locationRadioGroup = new CoconutLocationRadioGroup (0);
-			SelectedLocationIndex = 0;
+			_locationRadioGroup = new CoconutLocationRadioGroup (SelectedLocationIndex);
+
 
 			var locations = HttpWebRequestClient.Location;
 			var locationRoot = new RootElement ("Location",_locationRadioGroup);
 			var locationNameS = new Section ();
 
+			_locationRadioGroup.Selected = SelectedLocationIndex;
 			for (int i=0; i<locations.Count; i++ ){
 				locationNameS.Add (new RadioElement(locations[i]["name"]));
-				//locationList.Add (i);
-				if (locations[i]["name"] == location["name"]){
-					_locationRadioGroup.Selected = i;
-					SelectedLocationIndex = i;
-				}
 			}
 
 			_locationRadioGroup.onSelected += (object sender, EventArgs e) => {
 				SelectedLocationIndex = _locationRadioGroup.Selected;
-
 
 				// re-create service according to location
 				while(serviceNames.Count > 0){
@@ -149,7 +162,7 @@ namespace CoconutCalendar
 			_serviceRadioGroup = new CoconutLocationRadioGroup (0);
 			var serviceRoot = new RootElement ("Service",_serviceRadioGroup);
 			serviceNames = new Section ();
-			foreach(var i in createServiceNameList()){
+			foreach(var i in serviceList){
 				serviceNames.Add (new RadioElement(i["name"]));
 				serviceNamesList.Add (i);
 			}
@@ -164,7 +177,7 @@ namespace CoconutCalendar
 			_staffRadioGroup = new RadioGroup (0);
 			var staffRoot = new RootElement ("Staff",_staffRadioGroup);
 			staffNames = new Section ();
-			foreach(var i in createStaffNameList())
+			foreach(var i in staffList)
 			{
 				staffNames.Add (new RadioElement(i["first_name"]+" "+i["last_name"]));
 				staffNamesList.Add (i);
@@ -174,12 +187,12 @@ namespace CoconutCalendar
 
 
 			// set up start time
-			_start = new StringElement ("Start",dt.TimeOfDay.ToString());
+			_start = new StringElement ("Start",new TimeElement("start",dt).Value);
 			sectionG.Add (_start);
 
 			// set up end time
 			var endtime = dt;
-			_end = new StringElement ("End",endtime.AddMinutes (getServiceDurationByID ()).TimeOfDay.ToString());
+			_end = new StringElement ("End",new TimeElement("end",endtime.AddMinutes (getServiceDurationByID ())).Value);
 			sectionG.Add (_end);
 
 
@@ -230,16 +243,34 @@ namespace CoconutCalendar
 			}
 
 			// notes
-			var noteS = new Section ("Notes");
+
+//			var noteS = new Section ("Notes");
 			_notes = new SimpleMultilineEntryElement (string.Empty, string.Empty){
 				Editable = true,
 			};
+			_notes.Height = 300f;
+//
+//			noteS.Add (_notes);
+//
 
-			noteS.Add (_notes);
+			_note = new StringElement ("Notes", ()=>{
 
+				var noteR = new RootElement ("Notes");
+				var noteS = new Section ();
+				noteS.Add(_notes);
+				noteR.Add(noteS);
+
+				var notes =new DialogViewController(noteR){
+					Pushing = true,
+				};
+				this.NavigationController.PushViewController(notes,true);
+			});
+
+			var noteSec = new Section ();
+			noteSec.Add (_note);
 
 			Root.Add (sectionG);
-			Root.Add (noteS);
+			Root.Add (noteSec);
 
 			if(appointment != null){
 				setAppointment (_appointment);
@@ -250,13 +281,63 @@ namespace CoconutCalendar
 
 		}
 
+		public void createDynamicLocationServiceStaffSectionSource (JsonValue location)
+		{
+
+
+			var locationList = HttpWebRequestClient.Location;
+			for (int i=0; i<locationList.Count; i++){
+				if(locationList[i]["name"] == location["name"]){
+					SelectedLocationIndex = i;
+				}
+			}
+			createDynmicaServiceStaffSectionSource ();
+
+		}
+
+		public void createDynmicaServiceStaffSectionSource ()
+		{
+			var servicesByLocation =  HttpWebRequestClient.Instance.getServicesByLocation (HttpWebRequestClient.Location[SelectedLocationIndex]["id"]);
+			int serviceSelected = 0;
+			cleanJsonValueList (serviceList);
+			foreach (var i in servicesByLocation)
+			{
+				serviceList.Add ((JsonValue)i);
+			}
+
+			if(_serviceRadioGroup == null){
+				serviceSelected = 0;
+			}else{
+				serviceSelected = _serviceRadioGroup.Selected;
+			}
+
+			var servicesByID = HttpWebRequestClient.Instance.getServicesByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][serviceSelected]["id"]);
+			cleanJsonValueList (staffList);
+			foreach(var i in servicesByID["staff"])
+			{
+				staffList.Add ((JsonValue)i);
+			}
+		}
+
+		public void cleanJsonValueList (List<JsonValue> l){
+		
+			while(l.Count > 0){
+				l.RemoveAt (0);
+			}
+		}
+
 		public List<JsonValue> createServiceNameList (){
-			//var services = HttpWebRequestClient.Instance.getServicesByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
-			var services = HttpWebRequestClient.Instance.getServicesByLocation (HttpWebRequestClient.Location[SelectedLocationIndex]["id"]);
+//			var services = HttpWebRequestClient.Instance.getServicesByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
+
+//			while(servicesByLocation.Count > 0){
+//				servicesByLocation.Remove (0);
+//			}
+//
+			var servicesByLocation = HttpWebRequestClient.Instance.getServicesByLocation (HttpWebRequestClient.Location[SelectedLocationIndex]["id"]);
 
 			var serviceList = new List<JsonValue> ();
 
-			foreach (var i in services)
+			foreach (var i in servicesByLocation)
 			{
 				serviceList.Add ((JsonValue)i);
 			}
@@ -264,11 +345,11 @@ namespace CoconutCalendar
 		}
 
 		public List<JsonValue> createStaffNameList (){
-			
-			var services = HttpWebRequestClient.Instance.getServicesByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
+
+			var servicesByID = HttpWebRequestClient.Instance.getServicesByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
 
 			var staffList = new List<JsonValue> ();
-			foreach(var i in services["staff"])
+			foreach(var i in servicesByID["staff"])
 			{
 				staffList.Add ((JsonValue)i);
 			}
@@ -276,7 +357,8 @@ namespace CoconutCalendar
 		}
 
 		public double getServiceDurationByID(){
-			return HttpWebRequestClient.Instance.getServiceDurationByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
+			var duration = HttpWebRequestClient.Instance.getServiceDurationByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
+			return duration;
 		}
 
 
@@ -315,15 +397,14 @@ namespace CoconutCalendar
 			}
 
 			_notes.Value = appointment ["client"] [0] ["notes"].ToString();
-
 		}
 
-		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
-		{
-			var cell =  base.GetCell(tableView,indexPath);
-			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
-			return cell;
-		}
+//		public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
+//		{
+//			var cell =  base.GetCell(tableView,indexPath);
+//			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
+//			return cell;
+//		}
 
 		public MTMBProgressHUD createSpinner()
 		{
@@ -334,6 +415,8 @@ namespace CoconutCalendar
 			View.Add (_spinner);
 			return _spinner;
 		}
+
+
 	}
 
 	public class CoconutLocationRadioGroup : RadioGroup {
@@ -374,6 +457,8 @@ namespace CoconutCalendar
 		}
 		public event EventHandler<EventArgs> OnSelected;
 	}
+
+
 
 	public class FloatElementEx : Element
 	{
@@ -432,7 +517,7 @@ namespace CoconutCalendar
 			var cell = tv.DequeueReusableCell(CellKey);
 			if (cell == null) {
 				cell = new UITableViewCell(UITableViewCellStyle.Default, CellKey);
-				cell.SelectionStyle = UITableViewCellSelectionStyle.None;
+				//cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 			}
 			else
 				RemoveTag(cell, 1);

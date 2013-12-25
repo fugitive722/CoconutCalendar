@@ -59,12 +59,45 @@ namespace escoz
 		private MonthGridView _monthGridView;
         private UIButton _leftButton, _rightButton;
 
+		private UISwipeGestureRecognizer _swipeLeft;
+		private UISwipeGestureRecognizer _swipeRight;
+
         public CalendarMonthView() : base(new RectangleF(0, 0, 320, 400))
         {
             CurrentDate = DateTime.Now.Date;
 			CurrentMonthYear = new DateTime(CurrentDate.Year, CurrentDate.Month, 1);
+
+
+			if(_swipeLeft == null){
+				_swipeLeft = new UISwipeGestureRecognizer (this,new MonoTouch.ObjCRuntime.Selector("SwipeLeft"));
+				_swipeLeft.Direction = UISwipeGestureRecognizerDirection.Left;
+				_swipeLeft.NumberOfTouchesRequired = 1;
+			}
+
+			if(_swipeRight == null){
+				_swipeRight = new UISwipeGestureRecognizer (this,new MonoTouch.ObjCRuntime.Selector("SwipeRight"));
+				_swipeRight.Direction = UISwipeGestureRecognizerDirection.Right;
+				_swipeRight.NumberOfTouchesRequired = 1;
+			}
+
+			this.AddGestureRecognizer (_swipeLeft);
+			this.AddGestureRecognizer (_swipeRight);
 		}
-		
+
+		[Export("SwipeLeft")]
+		public void viewSwipeLeft (){
+			Console.Out.WriteLine ("Swipe Left Made");
+			MoveCalendarMonths(false, true);
+		}
+
+		[Export("SwipeRight")]
+		public void viewSwipeRight (){
+			Console.Out.WriteLine ("Swipe Right Made");
+			MoveCalendarMonths(true, true);
+		}
+
+
+
 		public override void SetNeedsDisplay ()
 		{
 			base.SetNeedsDisplay();
@@ -107,12 +140,15 @@ namespace escoz
         {
             _leftButton = UIButton.FromType(UIButtonType.Custom);
             _leftButton.TouchUpInside += HandlePreviousMonthTouch;
+			_leftButton.Hidden = true;
+
             _leftButton.SetImage(UIImage.FromFile("images/calendar/leftarrow.png"), UIControlState.Normal);
             AddSubview(_leftButton);
             _leftButton.Frame = new RectangleF(10, 0, 44, 42);
 
             _rightButton = UIButton.FromType(UIButtonType.Custom);
             _rightButton.TouchUpInside += HandleNextMonthTouch;
+			_rightButton.Hidden = true;
             _rightButton.SetImage(UIImage.FromFile("images/calendar/rightarrow.png"), UIControlState.Normal);
             AddSubview(_rightButton);
             _rightButton.Frame = new RectangleF(320 - 56, 0, 44, 42);
@@ -120,6 +156,7 @@ namespace escoz
 
         private void HandlePreviousMonthTouch(object sender, EventArgs e)
         {
+
             MoveCalendarMonths(false, true);
         }
         private void HandleNextMonthTouch(object sender, EventArgs e)
@@ -356,9 +393,9 @@ namespace escoz
 		
 		public override void TouchesMoved (NSSet touches, UIEvent evt)
 		{
-			base.TouchesMoved (touches, evt);
-			if (SelectDayView((UITouch)touches.AnyObject)&& _calendarMonthView.OnDateSelected!=null)
-				_calendarMonthView.OnDateSelected(new DateTime(_currentMonth.Year, _currentMonth.Month, SelectedDayView.Tag));
+//			base.TouchesMoved (touches, evt);
+//			if (SelectDayView((UITouch)touches.AnyObject)&& _calendarMonthView.OnDateSelected!=null)
+//				_calendarMonthView.OnDateSelected(new DateTime(_currentMonth.Year, _currentMonth.Month, SelectedDayView.Tag));
 		}
 		
 		public override void TouchesEnded (NSSet touches, UIEvent evt)

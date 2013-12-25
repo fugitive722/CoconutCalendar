@@ -6,7 +6,7 @@
 	<dict>
 		<key>CoconutCalendar.exe</key>
 		<data>
-		QUwgDKsaWmx7B+T9lOaL4h/CrYA=
+		xvZbR1/3GX56SzUJbXrqM6QEx8I=
 		</data>
 		<key>CoconutCalendarViewController.nib</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>MBProgressHUD.dll</key>
 		<data>
-		JpWP2XNQDldFdjqmtEc6b9Z8dYI=
+		h6Z7cd/FFAQpvWKZlGpc45sbyBc=
 		</data>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<data>
-		OiNGKwA3skzYPk37+BEZRrFcbPM=
+		GYV3vASKjVvVOegR2I6NEAbZc2E=
 		</data>
 		<key>NOTICE</key>
 		<data>
@@ -38,15 +38,15 @@
 		</data>
 		<key>System.Core.dll</key>
 		<data>
-		4G3R7bJ8v0aKpxwtB2cS0HxZ0f4=
+		ayh5vzcorD5HGBTw0Z2kiNtYv/k=
 		</data>
 		<key>System.Json.dll</key>
 		<data>
-		dDmQdXCJqOHdPJHHwffUKoEccNA=
+		ldwl7i+YGsrGusPz+XItpXgI3IM=
 		</data>
 		<key>System.dll</key>
 		<data>
-		bEhp3cBeI5MgUjUht7YEyXGrYkA=
+		z2ifKs9rHYgz8JijfQKhJSiu2Yw=
 		</data>
 		<key>cc_Client.nib</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>cc_Schedule_AppointmentCell.nib</key>
 		<data>
-		hUrRi5alf1x9rz++IBQV4L7yceo=
+		x4zRKYfhOZNd0SO1XPrL/Wr3xLg=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -142,18 +142,18 @@
 		</data>
 		<key>monotouch.dll</key>
 		<data>
-		E9l8lUJ+4npfD+/fUlLge04flXE=
+		KeuyJ4UyvRZCYzud9YtzVIeYZqA=
 		</data>
 		<key>mscorlib.dll</key>
 		<data>
-		ynKZgrPa6atucjijaexD40M/fFk=
+		6+BCmE4YlM/zoDf4PKXMWcINd14=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>CoconutCalendar.exe</key>
 		<data>
-		QUwgDKsaWmx7B+T9lOaL4h/CrYA=
+		xvZbR1/3GX56SzUJbXrqM6QEx8I=
 		</data>
 		<key>CoconutCalendarViewController.nib</key>
 		<data>
@@ -169,11 +169,11 @@
 		</data>
 		<key>MBProgressHUD.dll</key>
 		<data>
-		JpWP2XNQDldFdjqmtEc6b9Z8dYI=
+		h6Z7cd/FFAQpvWKZlGpc45sbyBc=
 		</data>
 		<key>MonoTouch.Dialog-1.dll</key>
 		<data>
-		OiNGKwA3skzYPk37+BEZRrFcbPM=
+		GYV3vASKjVvVOegR2I6NEAbZc2E=
 		</data>
 		<key>NOTICE</key>
 		<data>
@@ -185,15 +185,15 @@
 		</data>
 		<key>System.Core.dll</key>
 		<data>
-		4G3R7bJ8v0aKpxwtB2cS0HxZ0f4=
+		ayh5vzcorD5HGBTw0Z2kiNtYv/k=
 		</data>
 		<key>System.Json.dll</key>
 		<data>
-		dDmQdXCJqOHdPJHHwffUKoEccNA=
+		ldwl7i+YGsrGusPz+XItpXgI3IM=
 		</data>
 		<key>System.dll</key>
 		<data>
-		bEhp3cBeI5MgUjUht7YEyXGrYkA=
+		z2ifKs9rHYgz8JijfQKhJSiu2Yw=
 		</data>
 		<key>cc_Client.nib</key>
 		<data>
@@ -205,7 +205,7 @@
 		</data>
 		<key>cc_Schedule_AppointmentCell.nib</key>
 		<data>
-		hUrRi5alf1x9rz++IBQV4L7yceo=
+		x4zRKYfhOZNd0SO1XPrL/Wr3xLg=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -289,11 +289,11 @@
 		</data>
 		<key>monotouch.dll</key>
 		<data>
-		E9l8lUJ+4npfD+/fUlLge04flXE=
+		KeuyJ4UyvRZCYzud9YtzVIeYZqA=
 		</data>
 		<key>mscorlib.dll</key>
 		<data>
-		ynKZgrPa6atucjijaexD40M/fFk=
+		6+BCmE4YlM/zoDf4PKXMWcINd14=
 		</data>
 	</dict>
 	<key>rules</key>

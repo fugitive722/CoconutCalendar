@@ -502,35 +502,32 @@ native_to_managed_trampoline_CoconutCalendar_AppDelegate_FinishedLaunching (id t
 
 static MonoMethod *method_21 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetRowsInComponent (id this, SEL sel, id p0, int p1)
+native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_21)
 		method_21 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_21)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_21, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	void* retval = (void *) mono_runtime_invoke (method_21, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_21));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+	mono_runtime_invoke (method_21, mthis, arg_ptrs, NULL);
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_22 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetComponentCount (id this, SEL sel, id p0)
+native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate_HudWasHidden (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -549,17 +546,15 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetComponen
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_22, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_22, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_22, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_23 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetTitle (id this, SEL sel, id p0, int p1, int p2)
+native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Clicked (id this, SEL sel, id p0, int p1)
 {
-	void *arg_ptrs [3];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -577,26 +572,15 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetTitle (i
 		}
 		arg_ptrs [0] = mobj0;
 	arg_ptrs [1] = &p1;
-	arg_ptrs [2] = &p2;
-	void* retval = (void *) mono_runtime_invoke (method_23, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		char *str = mono_string_to_utf8 ((MonoString *) retval);
-		NSString *nsstr = [[NSString alloc] initWithUTF8String:str];
-		[nsstr autorelease];
-		mono_free (str);
-		res = nsstr;
-	}
-	return res;
+	mono_runtime_invoke (method_23, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_24 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_Selected (id this, SEL sel, id p0, int p1, int p2)
+native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Canceled (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [3];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -613,17 +597,15 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_Selected (i
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_24, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	arg_ptrs [2] = &p2;
 	mono_runtime_invoke (method_24, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_25 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Clicked (id this, SEL sel, id p0, int p1)
+native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_WillPresent (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -640,14 +622,13 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegat
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_25, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
 	mono_runtime_invoke (method_25, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_26 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Canceled (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Presented (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -672,9 +653,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegat
 
 static MonoMethod *method_27 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_WillPresent (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_WillDismiss (id this, SEL sel, id p0, int p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -691,15 +672,16 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegat
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_27, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
 	mono_runtime_invoke (method_27, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_28 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Presented (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Dismissed (id this, SEL sel, id p0, int p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -716,15 +698,16 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegat
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_28, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
 	mono_runtime_invoke (method_28, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_29 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_WillDismiss (id this, SEL sel, id p0, int p1)
+native_to_managed_trampoline_MonoTouch_UIKit_UIGestureRecognizer_ParameterlessDispatch_Activated (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -734,63 +717,11 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegat
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_29)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_29, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
 	mono_runtime_invoke (method_29, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_30 = NULL;
-void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Dismissed (id this, SEL sel, id p0, int p1)
-{
-	void *arg_ptrs [2];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_30)
-		method_30 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_30)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_30, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	mono_runtime_invoke (method_30, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
-static MonoMethod *method_31 = NULL;
-void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIGestureRecognizer_ParameterlessDispatch_Activated (id this, SEL sel)
-{
-	void *arg_ptrs [0];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_31)
-		method_31 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_31)));
-		}
-	mono_runtime_invoke (method_31, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
-static MonoMethod *method_32 = NULL;
 void *
 native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate__ctor (id this, SEL sel)
 {
@@ -800,13 +731,13 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate__ctor 
 		mono_jit_thread_attach (NULL);
 	if (monotouch_try_get_nsobject (this))
 		return this;
-	if (!method_32)
-		method_32 = get_method_for_selector ([this class], sel).method->method;
+	if (!method_30)
+		method_30 = get_method_for_selector ([this class], sel).method->method;
 	int handle = (int) this;
 	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_32));
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_30));
 	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_32, mthis, arg_ptrs, NULL);
+	mono_runtime_invoke (method_30, mthis, arg_ptrs, NULL);
 	monotouch_create_managed_ref (this, mthis, true);
 	void *params[2];
 	params[0] = mthis;
@@ -815,11 +746,71 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate__ctor 
 	return this;
 }
 
-static MonoMethod *method_33 = NULL;
+static MonoMethod *method_31 = NULL;
 void *
 native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_ShouldStartLoad (id this, SEL sel, id p0, id p1, int p2)
 {
 	void *arg_ptrs [3];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_31)
+		method_31 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_31)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_31, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_31, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	arg_ptrs [2] = &p2;
+	void* retval = (void *) mono_runtime_invoke (method_31, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
+}
+
+static MonoMethod *method_32 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadStarted (id this, SEL sel, id p0)
+{
+	void *arg_ptrs [1];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_32)
+		method_32 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_32)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_32, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_32, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_33 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadingFinished (id this, SEL sel, id p0)
+{
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -836,25 +827,15 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_Should
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_33, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_33, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	arg_ptrs [2] = &p2;
-	void* retval = (void *) mono_runtime_invoke (method_33, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_33, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_34 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadStarted (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadFailed (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -871,15 +852,22 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadSt
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_34, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_34, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_34, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_35 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadingFinished (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetRowsInComponent (id this, SEL sel, id p0, int p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -896,15 +884,18 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_Loadin
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_35, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_35, mthis, arg_ptrs, NULL);
-	return NULL;
+	arg_ptrs [1] = &p1;
+	void* retval = (void *) mono_runtime_invoke (method_35, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_36 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadFailed (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetComponentCount (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -921,47 +912,54 @@ native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadFa
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_36, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_36, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	mono_runtime_invoke (method_36, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_36, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_37 = NULL;
 void *
-native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate__ctor (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetTitle (id this, SEL sel, id p0, int p1, int p2)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [3];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_37)
 		method_37 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_37));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_37, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_37)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_37, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
+	arg_ptrs [2] = &p2;
+	void* retval = (void *) mono_runtime_invoke (method_37, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		char *str = mono_string_to_utf8 ((MonoString *) retval);
+		NSString *nsstr = [[NSString alloc] initWithUTF8String:str];
+		[nsstr autorelease];
+		mono_free (str);
+		res = nsstr;
+	}
+	return res;
 }
 
 static MonoMethod *method_38 = NULL;
 void *
-native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate_HudWasHidden (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_Selected (id this, SEL sel, id p0, int p1, int p2)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [3];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -978,6 +976,8 @@ native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegat
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_38, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
+	arg_ptrs [2] = &p2;
 	mono_runtime_invoke (method_38, mthis, arg_ptrs, NULL);
 	return NULL;
 }
@@ -1798,7 +1798,7 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_Draggi
 
 static MonoMethod *method_69 = NULL;
 void *
-native_to_managed_trampoline_escoz_CalendarMonthViewController__ctor (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1823,7 +1823,7 @@ native_to_managed_trampoline_escoz_CalendarMonthViewController__ctor (id this, S
 
 static MonoMethod *method_70 = NULL;
 void *
-native_to_managed_trampoline_escoz_CalendarMonthViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_DidReceiveMemoryWarning (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1841,7 +1841,25 @@ native_to_managed_trampoline_escoz_CalendarMonthViewController_ViewDidLoad (id t
 
 static MonoMethod *method_71 = NULL;
 void *
-native_to_managed_trampoline_escoz_CalendarDayView__ctor (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_ViewDidLoad (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_71)
+		method_71 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_71)));
+		}
+	mono_runtime_invoke (method_71, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_72 = NULL;
+void *
+native_to_managed_trampoline_escoz_CalendarMonthViewController__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -1849,13 +1867,13 @@ native_to_managed_trampoline_escoz_CalendarDayView__ctor (id this, SEL sel)
 		mono_jit_thread_attach (NULL);
 	if (monotouch_try_get_nsobject (this))
 		return this;
-	if (!method_71)
-		method_71 = get_method_for_selector ([this class], sel).method->method;
+	if (!method_72)
+		method_72 = get_method_for_selector ([this class], sel).method->method;
 	int handle = (int) this;
 	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_71));
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_72));
 	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_71, mthis, arg_ptrs, NULL);
+	mono_runtime_invoke (method_72, mthis, arg_ptrs, NULL);
 	monotouch_create_managed_ref (this, mthis, true);
 	void *params[2];
 	params[0] = mthis;
@@ -1864,30 +1882,11 @@ native_to_managed_trampoline_escoz_CalendarDayView__ctor (id this, SEL sel)
 	return this;
 }
 
-static MonoMethod *method_72 = NULL;
-void *
-native_to_managed_trampoline_escoz_CalendarDayView_Draw (id this, SEL sel, CGRect p0)
-{
-	void *arg_ptrs [1];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_72)
-		method_72 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_72)));
-		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_72, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
 static MonoMethod *method_73 = NULL;
 void *
-native_to_managed_trampoline_escoz_MonthGridView_TouchesBegan (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_escoz_CalendarMonthViewController_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1897,61 +1896,40 @@ native_to_managed_trampoline_escoz_MonthGridView_TouchesBegan (id this, SEL sel,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_73)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_73, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_73, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_73, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_74 = NULL;
 void *
-native_to_managed_trampoline_escoz_MonthGridView_TouchesMoved (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_escoz_CalendarDayView__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_74)
 		method_74 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_74)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_74, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_74, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_74));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
 	mono_runtime_invoke (method_74, mthis, arg_ptrs, NULL);
-	return NULL;
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_75 = NULL;
 void *
-native_to_managed_trampoline_escoz_MonthGridView_TouchesEnded (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_escoz_CalendarDayView_Draw (id this, SEL sel, CGRect p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -1961,54 +1939,44 @@ native_to_managed_trampoline_escoz_MonthGridView_TouchesEnded (id this, SEL sel,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_75)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_75, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_75, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_75, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_76 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController__ctor (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__botView (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_76)
 		method_76 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_76));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_76, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_76)));
+		}
+	void* retval = (void *) mono_runtime_invoke (method_76, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_77 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_DidReceiveMemoryWarning (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__botView (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2018,13 +1986,20 @@ native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_DidRe
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_77)));
 		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_77, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_77, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_78 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__dataPicker (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -2036,15 +2011,25 @@ native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_ViewD
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_78)));
 		}
-	mono_runtime_invoke (method_78, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_78, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_79 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__botView (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__dataPicker (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2054,25 +2039,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__botView (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_79)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_79, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_79, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_79, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_80 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__botView (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__dateBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2082,22 +2064,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__botView (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_80)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_80, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_80, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_80, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_81 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__dataPicker (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__dateBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2107,25 +2092,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__dataPicker (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_81)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_81, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_81, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_81, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_82 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__dataPicker (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__friBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2135,22 +2117,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__dataPicker (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_82)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_82, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_82, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_82, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_83 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__dateBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__friBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2160,25 +2145,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__dateBtn (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_83)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_83, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_83, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_83, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_84 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__dateBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__locationBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2188,22 +2170,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__dateBtn (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_84)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_84, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_84, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_84, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_85 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__friBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__locationBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2213,25 +2198,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__friBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_85)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_85, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_85, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_85, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_86 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__friBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__midVIew (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2241,22 +2223,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__friBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_86)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_86, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_86, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_86, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_87 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__locationBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__midVIew (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2266,25 +2251,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__locationBtn (id th
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_87)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_87, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_87, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_87, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_88 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__locationBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__monBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2294,22 +2276,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__locationBtn (id th
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_88)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_88, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_88, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_88, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_89 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__midVIew (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__monBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2319,25 +2304,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__midVIew (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_89)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_89, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_89, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_89, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_90 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__midVIew (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__monthLabel (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2347,22 +2329,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__midVIew (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_90)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_90, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_90, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_90, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_91 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__monBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__monthLabel (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2372,25 +2357,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__monBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_91)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_91, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_91, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_91, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_92 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__monBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__pickerView (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2400,22 +2382,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__monBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_92)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_92, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_92, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_92, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_93 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__monthLabel (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__pickerView (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2425,25 +2410,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__monthLabel (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_93)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_93, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_93, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_93, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_94 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__monthLabel (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__satBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2453,22 +2435,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__monthLabel (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_94)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_94, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_94, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_94, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_95 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__pickerView (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__satBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2478,25 +2463,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__pickerView (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_95)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_95, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_95, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_95, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_96 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__pickerView (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__staffBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2506,22 +2488,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__pickerView (id thi
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_96)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_96, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_96, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_96, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_97 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__satBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__staffBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2531,25 +2516,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__satBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_97)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_97, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_97, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_97, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_98 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__satBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__sunBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2559,22 +2541,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__satBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_98)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_98, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_98, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_98, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_99 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__staffBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__sunBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2584,25 +2569,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__staffBtn (id this,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_99)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_99, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_99, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_99, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_100 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__staffBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__thuBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2612,22 +2594,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__staffBtn (id this,
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_100)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_100, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_100, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_100, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_101 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__sunBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__thuBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2637,25 +2622,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__sunBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_101)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_101, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_101, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_101, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_102 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__sunBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__topView (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2665,22 +2647,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__sunBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_102)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_102, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_102, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_102, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_103 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__thuBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__topView (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2690,25 +2675,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__thuBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_103)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_103, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_103, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_103, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_104 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__thuBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__tueBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2718,22 +2700,25 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__thuBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_104)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_104, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_104, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_104, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_105 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__topView (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__tueBtn (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2743,25 +2728,22 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__topView (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_105)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_105, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_105, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_105, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_106 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__topView (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__wedBtn (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2771,32 +2753,7 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__topView (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_106)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_106, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_106, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
-static MonoMethod *method_107 = NULL;
-void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__tueBtn (id this, SEL sel)
-{
-	void *arg_ptrs [0];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_107)
-		method_107 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_107)));
-		}
-	void* retval = (void *) mono_runtime_invoke (method_107, mthis, arg_ptrs, NULL);
+	void* retval = (void *) mono_runtime_invoke (method_106, mthis, arg_ptrs, NULL);
 	void * res;
 	if (!retval) {
 		res = NULL;
@@ -2810,34 +2767,59 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__tueBtn (id this, S
 	return res;
 }
 
-static MonoMethod *method_108 = NULL;
+static MonoMethod *method_107 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__tueBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__wedBtn (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (!method_108)
-		method_108 = get_method_for_selector ([this class], sel).method->method;
+	if (!method_107)
+		method_107 = get_method_for_selector ([this class], sel).method->method;
 		mthis = NULL;
 		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_108)));
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_107)));
 		}
 	NSObject *nsobj0 = (NSObject *) p0;
 		MonoObject *mobj0 = NULL;
 		bool created0 = false;
 		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_108, 0), &created0);
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_107, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_108, mthis, arg_ptrs, NULL);
+	mono_runtime_invoke (method_107, mthis, arg_ptrs, NULL);
 	return NULL;
+}
+
+static MonoMethod *method_108 = NULL;
+void *
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule__ctor (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
+	if (!method_108)
+		method_108 = get_method_for_selector ([this class], sel).method->method;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_108));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+	mono_runtime_invoke (method_108, mthis, arg_ptrs, NULL);
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_109 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__wedBtn (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_DidReceiveMemoryWarning (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -2849,25 +2831,15 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__wedBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_109)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_109, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	mono_runtime_invoke (method_109, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_110 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__wedBtn (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -2877,45 +2849,31 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__wedBtn (id this, S
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_110)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_110, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_110, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_111 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule__ctor (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_viewSwipeLeft (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_111)
 		method_111 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_111));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_111)));
+		}
 	mono_runtime_invoke (method_111, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+	return NULL;
 }
 
 static MonoMethod *method_112 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_DidReceiveMemoryWarning (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_viewSwipeRight (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -2933,25 +2891,32 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_DidReceiveMemoryWarning
 
 static MonoMethod *method_113 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Client__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_113)
 		method_113 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_113)));
-		}
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_113));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
 	mono_runtime_invoke (method_113, mthis, arg_ptrs, NULL);
-	return NULL;
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_114 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_viewSwipeLeft (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Client_DidReceiveMemoryWarning (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -2969,7 +2934,7 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_viewSwipeLeft (id this,
 
 static MonoMethod *method_115 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_viewSwipeRight (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Client_ViewDidLoad (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -2987,34 +2952,37 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_viewSwipeRight (id this
 
 static MonoMethod *method_116 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Client__ctor (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_RowsInSection (id this, SEL sel, id p0, int p1)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_116)
 		method_116 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_116));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_116, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_116)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_116, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
+	void* retval = (void *) mono_runtime_invoke (method_116, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_117 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Client_DidReceiveMemoryWarning (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_NumberOfSections (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3024,15 +2992,24 @@ native_to_managed_trampoline_CoconutCalendar_cc_Client_DidReceiveMemoryWarning (
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_117)));
 		}
-	mono_runtime_invoke (method_117, mthis, arg_ptrs, NULL);
-	return NULL;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_117, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	void* retval = (void *) mono_runtime_invoke (method_117, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_118 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Client_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_TitleForHeader (id this, SEL sel, id p0, int p1)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3042,13 +3019,31 @@ native_to_managed_trampoline_CoconutCalendar_cc_Client_ViewDidLoad (id this, SEL
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_118)));
 		}
-	mono_runtime_invoke (method_118, mthis, arg_ptrs, NULL);
-	return NULL;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_118, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
+	void* retval = (void *) mono_runtime_invoke (method_118, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		char *str = mono_string_to_utf8 ((MonoString *) retval);
+		NSString *nsstr = [[NSString alloc] initWithUTF8String:str];
+		[nsstr autorelease];
+		mono_free (str);
+		res = nsstr;
+	}
+	return res;
 }
 
 static MonoMethod *method_119 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_RowsInSection (id this, SEL sel, id p0, int p1)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_GetCell (id this, SEL sel, id p0, id p1)
 {
 	void *arg_ptrs [2];
 	MonoObject *mthis;
@@ -3067,18 +3062,32 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_RowsI
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_119, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_119, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_119, mthis, arg_ptrs, NULL);
 	void * res;
-	res = *(void * *) mono_object_unbox (retval);
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
 	return res;
 }
 
 static MonoMethod *method_120 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_NumberOfSections (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_RowSelected (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3095,15 +3104,20 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_Numbe
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_120, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_120, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_120, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	mono_runtime_invoke (method_120, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_121 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_TitleForHeader (id this, SEL sel, id p0, int p1)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_AccessoryButtonTapped (id this, SEL sel, id p0, id p1)
 {
 	void *arg_ptrs [2];
 	MonoObject *mthis;
@@ -3122,24 +3136,20 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_Title
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_121, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	void* retval = (void *) mono_runtime_invoke (method_121, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		char *str = mono_string_to_utf8 ((MonoString *) retval);
-		NSString *nsstr = [[NSString alloc] initWithUTF8String:str];
-		[nsstr autorelease];
-		mono_free (str);
-		res = nsstr;
-	}
-	return res;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_121, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	mono_runtime_invoke (method_121, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_122 = NULL;
-void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_GetCell (id this, SEL sel, id p0, id p1)
+float
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
 {
 	void *arg_ptrs [2];
 	MonoObject *mthis;
@@ -3166,6 +3176,26 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_GetCe
 		}
 		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_122, mthis, arg_ptrs, NULL);
+	float res;
+	res = *(float *) mono_object_unbox (retval);
+	return res;
+}
+
+static MonoMethod *method_123 = NULL;
+void *
+native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_get_monthView (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_123)
+		method_123 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_123)));
+		}
+	void* retval = (void *) mono_runtime_invoke (method_123, mthis, arg_ptrs, NULL);
 	void * res;
 	if (!retval) {
 		res = NULL;
@@ -3179,43 +3209,11 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_GetCe
 	return res;
 }
 
-static MonoMethod *method_123 = NULL;
-void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_RowSelected (id this, SEL sel, id p0, id p1)
-{
-	void *arg_ptrs [2];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_123)
-		method_123 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_123)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_123, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_123, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	mono_runtime_invoke (method_123, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
 static MonoMethod *method_124 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_AccessoryButtonTapped (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_set_monthView (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3232,71 +3230,11 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_Acces
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_124, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_124, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_124, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_125 = NULL;
-void *
-native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_get_monthView (id this, SEL sel)
-{
-	void *arg_ptrs [0];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_125)
-		method_125 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_125)));
-		}
-	void* retval = (void *) mono_runtime_invoke (method_125, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
-}
-
-static MonoMethod *method_126 = NULL;
-void *
-native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_set_monthView (id this, SEL sel, id p0)
-{
-	void *arg_ptrs [1];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_126)
-		method_126 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_126)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_126, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_126, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
-static MonoMethod *method_127 = NULL;
 void *
 native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController__ctor (id this, SEL sel)
 {
@@ -3306,13 +3244,13 @@ native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewContro
 		mono_jit_thread_attach (NULL);
 	if (monotouch_try_get_nsobject (this))
 		return this;
-	if (!method_127)
-		method_127 = get_method_for_selector ([this class], sel).method->method;
+	if (!method_125)
+		method_125 = get_method_for_selector ([this class], sel).method->method;
 	int handle = (int) this;
 	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_127));
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_125));
 	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_127, mthis, arg_ptrs, NULL);
+	mono_runtime_invoke (method_125, mthis, arg_ptrs, NULL);
 	monotouch_create_managed_ref (this, mthis, true);
 	void *params[2];
 	params[0] = mthis;
@@ -3321,7 +3259,7 @@ native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewContro
 	return this;
 }
 
-static MonoMethod *method_128 = NULL;
+static MonoMethod *method_126 = NULL;
 void *
 native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_DidReceiveMemoryWarning (id this, SEL sel)
 {
@@ -3329,19 +3267,62 @@ native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewContro
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (!method_128)
-		method_128 = get_method_for_selector ([this class], sel).method->method;
+	if (!method_126)
+		method_126 = get_method_for_selector ([this class], sel).method->method;
 		mthis = NULL;
 		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_128)));
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_126)));
 		}
-	mono_runtime_invoke (method_128, mthis, arg_ptrs, NULL);
+	mono_runtime_invoke (method_126, mthis, arg_ptrs, NULL);
 	return NULL;
+}
+
+static MonoMethod *method_127 = NULL;
+void *
+native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_ViewDidLoad (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_127)
+		method_127 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_127)));
+		}
+	mono_runtime_invoke (method_127, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_128 = NULL;
+void *
+native_to_managed_trampoline_escoz_CalendarMonthView__ctor (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
+	if (!method_128)
+		method_128 = get_method_for_selector ([this class], sel).method->method;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_128));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+	mono_runtime_invoke (method_128, mthis, arg_ptrs, NULL);
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_129 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_escoz_CalendarMonthView_viewSwipeLeft (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -3359,27 +3340,20 @@ native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewContro
 
 static MonoMethod *method_130 = NULL;
 void *
-native_to_managed_trampoline_escoz_CalendarMonthView__ctor (id this, SEL sel)
+native_to_managed_trampoline_escoz_CalendarMonthView_viewSwipeRight (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_130)
 		method_130 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_130));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_130)));
+		}
 	mono_runtime_invoke (method_130, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+	return NULL;
 }
 
 static MonoMethod *method_131 = NULL;
@@ -3439,34 +3413,41 @@ native_to_managed_trampoline_escoz_CalendarMonthView_Draw (id this, SEL sel, CGR
 
 static MonoMethod *method_134 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate__ctor (id this, SEL sel)
+native_to_managed_trampoline_escoz_MonthGridView_TouchesBegan (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_134)
 		method_134 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_134));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_134)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_134, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_134, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_134, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+	return NULL;
 }
 
 static MonoMethod *method_135 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldBeginEditing (id this, SEL sel, id p0)
+native_to_managed_trampoline_escoz_MonthGridView_TouchesMoved (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3483,17 +3464,22 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_135, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_135, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_135, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	mono_runtime_invoke (method_135, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_136 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldEndEditing (id this, SEL sel, id p0)
+native_to_managed_trampoline_escoz_MonthGridView_TouchesEnded (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3510,40 +3496,45 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_136, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_136, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_136, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	mono_runtime_invoke (method_136, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_137 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_EditingStarted (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_137)
 		method_137 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_137)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_137, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_137));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
 	mono_runtime_invoke (method_137, mthis, arg_ptrs, NULL);
-	return NULL;
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_138 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_EditingEnded (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldBeginEditing (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3562,15 +3553,17 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Edit
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_138, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_138, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_138, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_139 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldChangeText (id this, SEL sel, id p0, NSRange p1, NSString * p2)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldEndEditing (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [3];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3587,8 +3580,6 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_139, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	arg_ptrs [2] = p2 ? mono_string_new (mono_domain_get (), [p2 UTF8String]) : NULL;
 	void* retval = (void *) mono_runtime_invoke (method_139, mthis, arg_ptrs, NULL);
 	void * res;
 	res = *(void * *) mono_object_unbox (retval);
@@ -3597,7 +3588,7 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 
 static MonoMethod *method_140 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Changed (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_EditingStarted (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3622,7 +3613,7 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Chan
 
 static MonoMethod *method_141 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_SelectionChanged (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_EditingEnded (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3647,7 +3638,7 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Sele
 
 static MonoMethod *method_142 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldInteractWithUrl (id this, SEL sel, id p0, id p1, NSRange p2)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldChangeText (id this, SEL sel, id p0, NSRange p1, NSString * p2)
 {
 	void *arg_ptrs [3];
 	MonoObject *mthis;
@@ -3666,14 +3657,8 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_142, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_142, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	arg_ptrs [2] = &p2;
+	arg_ptrs [1] = &p1;
+	arg_ptrs [2] = p2 ? mono_string_new (mono_domain_get (), [p2 UTF8String]) : NULL;
 	void* retval = (void *) mono_runtime_invoke (method_142, mthis, arg_ptrs, NULL);
 	void * res;
 	res = *(void * *) mono_object_unbox (retval);
@@ -3682,9 +3667,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 
 static MonoMethod *method_143 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldInteractWithTextAttachment (id this, SEL sel, id p0, id p1, NSRange p2)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Changed (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [3];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3701,23 +3686,13 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_143, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_143, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	arg_ptrs [2] = &p2;
-	void* retval = (void *) mono_runtime_invoke (method_143, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_143, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_144 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Scrolled (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_SelectionChanged (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3742,9 +3717,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Scro
 
 static MonoMethod *method_145 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DraggingStarted (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldInteractWithUrl (id this, SEL sel, id p0, id p1, NSRange p2)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [3];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3761,15 +3736,25 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Drag
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_145, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_145, mthis, arg_ptrs, NULL);
-	return NULL;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_145, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	arg_ptrs [2] = &p2;
+	void* retval = (void *) mono_runtime_invoke (method_145, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_146 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DraggingEnded (id this, SEL sel, id p0, bool p1)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldInteractWithTextAttachment (id this, SEL sel, id p0, id p1, NSRange p2)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [3];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3786,14 +3771,23 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Drag
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_146, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	mono_runtime_invoke (method_146, mthis, arg_ptrs, NULL);
-	return NULL;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_146, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	arg_ptrs [2] = &p2;
+	void* retval = (void *) mono_runtime_invoke (method_146, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_147 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DecelerationStarted (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Scrolled (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3818,7 +3812,7 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Dece
 
 static MonoMethod *method_148 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DecelerationEnded (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DraggingStarted (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3843,9 +3837,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Dece
 
 static MonoMethod *method_149 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ScrollAnimationEnded (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DraggingEnded (id this, SEL sel, id p0, bool p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3862,13 +3856,14 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Scro
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_149, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
 	mono_runtime_invoke (method_149, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_150 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ViewForZoomingInScrollView (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DecelerationStarted (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3887,23 +3882,13 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_View
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_150, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_150, mthis, arg_ptrs, NULL);
-	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
-	return res;
+	mono_runtime_invoke (method_150, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_151 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldScrollToTop (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DecelerationEnded (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3922,15 +3907,13 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Shou
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_151, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	void* retval = (void *) mono_runtime_invoke (method_151, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_151, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_152 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ScrolledToTop (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ScrollAnimationEnded (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -3955,9 +3938,9 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Scro
 
 static MonoMethod *method_153 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ZoomingEnded (id this, SEL sel, id p0, id p1, float p2)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ViewForZoomingInScrollView (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [3];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -3974,21 +3957,23 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Zoom
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_153, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_153, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	arg_ptrs [2] = &p2;
-	mono_runtime_invoke (method_153, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_153, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_154 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DidZoom (id this, SEL sel, id p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldScrollToTop (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -4007,15 +3992,17 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DidZ
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_154, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	mono_runtime_invoke (method_154, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_154, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_155 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ZoomingStarted (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ScrolledToTop (id this, SEL sel, id p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4032,20 +4019,13 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Zoom
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_155, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_155, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_155, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_156 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_WillEndDragging (id this, SEL sel, id p0, CGPoint p1, CGPoint* p2)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ZoomingEnded (id this, SEL sel, id p0, id p1, float p2)
 {
 	void *arg_ptrs [3];
 	MonoObject *mthis;
@@ -4064,15 +4044,21 @@ native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_Will
 			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_156, 0), &created0);
 		}
 		arg_ptrs [0] = mobj0;
-	arg_ptrs [1] = &p1;
-	arg_ptrs [2] = p2;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_156, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	arg_ptrs [2] = &p2;
 	mono_runtime_invoke (method_156, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_157 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ShouldAutorotateToInterfaceOrientation (id this, SEL sel, int p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DidZoom (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -4084,18 +4070,22 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ShouldAutorot
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_157)));
 		}
-	arg_ptrs [0] = &p0;
-	void* retval = (void *) mono_runtime_invoke (method_157, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_157, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	mono_runtime_invoke (method_157, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_158 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_DidRotate (id this, SEL sel, int p0)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ZoomingStarted (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4105,16 +4095,29 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_DidRotate (id
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_158)));
 		}
-	arg_ptrs [0] = &p0;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_158, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_158, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_158, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_159 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_LoadView (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_WillEndDragging (id this, SEL sel, id p0, CGPoint p1, CGPoint* p2)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [3];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4124,15 +4127,24 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_LoadView (id 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_159)));
 		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_159, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	arg_ptrs [1] = &p1;
+	arg_ptrs [2] = p2;
 	mono_runtime_invoke (method_159, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_160 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_labelService (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4142,14 +4154,23 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillAppea
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_160)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_160, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_160, mthis, arg_ptrs, NULL);
+	void * res;
+	if (!retval) {
+		res = NULL;
+	} else {
+		id retobj;
+		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
+		[retobj retain];
+		[retobj autorelease];
+		res = retobj;
+	}
+	return res;
 }
 
 static MonoMethod *method_161 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillDisappear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_labelService (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -4161,14 +4182,20 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillDisap
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_161)));
 		}
-	arg_ptrs [0] = &p0;
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_161, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
 	mono_runtime_invoke (method_161, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_162 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_endTimeLabel (id this, SEL sel)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_labelStart (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -4196,7 +4223,7 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_end
 
 static MonoMethod *method_163 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_endTimeLabel (id this, SEL sel, id p0)
+native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_labelStart (id this, SEL sel, id p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -4326,35 +4353,44 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_sta
 }
 
 static MonoMethod *method_168 = NULL;
-void *
-native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell__ctor (id this, SEL sel)
+float
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [2];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_168)
 		method_168 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_168));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_168, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_168)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_168, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_168, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	void* retval = (void *) mono_runtime_invoke (method_168, mthis, arg_ptrs, NULL);
+	float res;
+	res = *(float *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_169 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell_LayoutSubviews (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ShouldAutorotateToInterfaceOrientation (id this, SEL sel, int p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4364,15 +4400,18 @@ native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell_LayoutS
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_169)));
 		}
-	mono_runtime_invoke (method_169, mthis, arg_ptrs, NULL);
-	return NULL;
+	arg_ptrs [0] = &p0;
+	void* retval = (void *) mono_runtime_invoke (method_169, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_170 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCell_LayoutSubviews (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_DidRotate (id this, SEL sel, int p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4382,40 +4421,34 @@ native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCell_L
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_170)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_170, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_171 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_TapViewController__ctor (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_LoadView (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
-	if (monotouch_try_get_nsobject (this))
-		return this;
 	if (!method_171)
 		method_171 = get_method_for_selector ([this class], sel).method->method;
-	int handle = (int) this;
-	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_171));
-	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_171)));
+		}
 	mono_runtime_invoke (method_171, mthis, arg_ptrs, NULL);
-	monotouch_create_managed_ref (this, mthis, true);
-	void *params[2];
-	params[0] = mthis;
-	params[1] = &this;
-	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
-	return this;
+	return NULL;
 }
 
 static MonoMethod *method_172 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_TapViewController_ViewDidLoad (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillAppear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [0];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4425,15 +4458,16 @@ native_to_managed_trampoline_CoconutCalendar_cc_TapViewController_ViewDidLoad (i
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_172)));
 		}
+	arg_ptrs [0] = &p0;
 	mono_runtime_invoke (method_172, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_173 = NULL;
-float
-native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_GetHeightForRow (id this, SEL sel, id p0, id p1)
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillDisappear (id this, SEL sel, bool p0)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [1];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4443,47 +4477,14 @@ native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_173)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_173, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_173, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	void* retval = (void *) mono_runtime_invoke (method_173, mthis, arg_ptrs, NULL);
-	float res;
-	res = *(float *) mono_object_unbox (retval);
-	return res;
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_173, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_174 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_BaseBooleanImageElement_TextWithImageCellView_LayoutSubviews (id this, SEL sel)
-{
-	void *arg_ptrs [0];
-	MonoObject *mthis;
-	if (mono_domain_get () == NULL)
-		mono_jit_thread_attach (NULL);
-	if (!method_174)
-		method_174 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_174)));
-		}
-	mono_runtime_invoke (method_174, mthis, arg_ptrs, NULL);
-	return NULL;
-}
-
-static MonoMethod *method_175 = NULL;
-void *
-native_to_managed_trampoline_CoconutCalendar_cc_LoginViewController__ctor (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell__ctor (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -4491,13 +4492,13 @@ native_to_managed_trampoline_CoconutCalendar_cc_LoginViewController__ctor (id th
 		mono_jit_thread_attach (NULL);
 	if (monotouch_try_get_nsobject (this))
 		return this;
-	if (!method_175)
-		method_175 = get_method_for_selector ([this class], sel).method->method;
+	if (!method_174)
+		method_174 = get_method_for_selector ([this class], sel).method->method;
 	int handle = (int) this;
 	handle |= 1;
-	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_175));
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_174));
 	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
-	mono_runtime_invoke (method_175, mthis, arg_ptrs, NULL);
+	mono_runtime_invoke (method_174, mthis, arg_ptrs, NULL);
 	monotouch_create_managed_ref (this, mthis, true);
 	void *params[2];
 	params[0] = mthis;
@@ -4506,9 +4507,27 @@ native_to_managed_trampoline_CoconutCalendar_cc_LoginViewController__ctor (id th
 	return this;
 }
 
+static MonoMethod *method_175 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell_LayoutSubviews (id this, SEL sel)
+{
+	void *arg_ptrs [0];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_175)
+		method_175 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_175)));
+		}
+	mono_runtime_invoke (method_175, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
 static MonoMethod *method_176 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_get_Enabled (id this, SEL sel)
+native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCell_LayoutSubviews (id this, SEL sel)
 {
 	void *arg_ptrs [0];
 	MonoObject *mthis;
@@ -4520,36 +4539,40 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_get_Enabled (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_176)));
 		}
-	void* retval = (void *) mono_runtime_invoke (method_176, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_176, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_177 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_set_Enabled (id this, SEL sel, bool p0)
+native_to_managed_trampoline_CoconutCalendar_cc_TapViewController__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_177)
 		method_177 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_177)));
-		}
-	arg_ptrs [0] = &p0;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_177));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
 	mono_runtime_invoke (method_177, mthis, arg_ptrs, NULL);
-	return NULL;
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_178 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_BeginTracking (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_CoconutCalendar_cc_TapViewController_ViewDidLoad (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4559,31 +4582,15 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_BeginTracking (id this
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_178)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_178, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_178, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	void* retval = (void *) mono_runtime_invoke (method_178, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	mono_runtime_invoke (method_178, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 static MonoMethod *method_179 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_EndTracking (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_MonoTouch_Dialog_BaseBooleanImageElement_TextWithImageCellView_LayoutSubviews (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4593,63 +4600,40 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_EndTracking (id this, 
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_179)));
 		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_179, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_179, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
 	mono_runtime_invoke (method_179, mthis, arg_ptrs, NULL);
 	return NULL;
 }
 
 static MonoMethod *method_180 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_ContinueTracking (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_CoconutCalendar_cc_LoginViewController__ctor (id this, SEL sel)
 {
-	void *arg_ptrs [2];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
+	if (monotouch_try_get_nsobject (this))
+		return this;
 	if (!method_180)
 		method_180 = get_method_for_selector ([this class], sel).method->method;
-		mthis = NULL;
-		if (this) {
-			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_180)));
-		}
-	NSObject *nsobj0 = (NSObject *) p0;
-		MonoObject *mobj0 = NULL;
-		bool created0 = false;
-		if (nsobj0) {
-			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_180, 0), &created0);
-		}
-		arg_ptrs [0] = mobj0;
-	NSObject *nsobj1 = (NSObject *) p1;
-		MonoObject *mobj1 = NULL;
-		bool created1 = false;
-		if (nsobj1) {
-			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_180, 1), &created1);
-		}
-		arg_ptrs [1] = mobj1;
-	void* retval = (void *) mono_runtime_invoke (method_180, mthis, arg_ptrs, NULL);
-	void * res;
-	res = *(void * *) mono_object_unbox (retval);
-	return res;
+	int handle = (int) this;
+	handle |= 1;
+	mthis = mono_object_new (mono_domain_get (), mono_method_get_class (method_180));
+	mono_field_set_value (mthis, monotouch_nsobject_handle_field, &handle);
+	mono_runtime_invoke (method_180, mthis, arg_ptrs, NULL);
+	monotouch_create_managed_ref (this, mthis, true);
+	void *params[2];
+	params[0] = mthis;
+	params[1] = &this;
+	mono_runtime_invoke (monotouch_register_nsobject, NULL, params, NULL);
+	return this;
 }
 
 static MonoMethod *method_181 = NULL;
 void *
-native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw (id this, SEL sel, CGRect p0)
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_get_Enabled (id this, SEL sel)
 {
-	void *arg_ptrs [1];
+	void *arg_ptrs [0];
 	MonoObject *mthis;
 	if (mono_domain_get () == NULL)
 		mono_jit_thread_attach (NULL);
@@ -4659,14 +4643,15 @@ native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw (id this, SEL sel
 		if (this) {
 			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_181)));
 		}
-	arg_ptrs [0] = &p0;
-	mono_runtime_invoke (method_181, mthis, arg_ptrs, NULL);
-	return NULL;
+	void* retval = (void *) mono_runtime_invoke (method_181, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
 }
 
 static MonoMethod *method_182 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendarAdmin_CoconutClientViewController_ViewWillAppear (id this, SEL sel, bool p0)
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_set_Enabled (id this, SEL sel, bool p0)
 {
 	void *arg_ptrs [1];
 	MonoObject *mthis;
@@ -4685,7 +4670,7 @@ native_to_managed_trampoline_CoconutCalendarAdmin_CoconutClientViewController_Vi
 
 static MonoMethod *method_183 = NULL;
 void *
-native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AddNew_GetCell (id this, SEL sel, id p0, id p1)
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_BeginTracking (id this, SEL sel, id p0, id p1)
 {
 	void *arg_ptrs [2];
 	MonoObject *mthis;
@@ -4713,16 +4698,112 @@ native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AddNew_GetCell (id this
 		arg_ptrs [1] = mobj1;
 	void* retval = (void *) mono_runtime_invoke (method_183, mthis, arg_ptrs, NULL);
 	void * res;
-	if (!retval) {
-		res = NULL;
-	} else {
-		id retobj;
-		mono_field_get_value (retval, monotouch_nsobject_handle_field, (void **) &retobj);
-		[retobj retain];
-		[retobj autorelease];
-		res = retobj;
-	}
+	res = *(void * *) mono_object_unbox (retval);
 	return res;
+}
+
+static MonoMethod *method_184 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_EndTracking (id this, SEL sel, id p0, id p1)
+{
+	void *arg_ptrs [2];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_184)
+		method_184 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_184)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_184, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_184, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	mono_runtime_invoke (method_184, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_185 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_ContinueTracking (id this, SEL sel, id p0, id p1)
+{
+	void *arg_ptrs [2];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_185)
+		method_185 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_185)));
+		}
+	NSObject *nsobj0 = (NSObject *) p0;
+		MonoObject *mobj0 = NULL;
+		bool created0 = false;
+		if (nsobj0) {
+			mobj0 = get_nsobject_with_type_for_ptr_created (nsobj0, false, monotouch_get_parameter_type (method_185, 0), &created0);
+		}
+		arg_ptrs [0] = mobj0;
+	NSObject *nsobj1 = (NSObject *) p1;
+		MonoObject *mobj1 = NULL;
+		bool created1 = false;
+		if (nsobj1) {
+			mobj1 = get_nsobject_with_type_for_ptr_created (nsobj1, false, monotouch_get_parameter_type (method_185, 1), &created1);
+		}
+		arg_ptrs [1] = mobj1;
+	void* retval = (void *) mono_runtime_invoke (method_185, mthis, arg_ptrs, NULL);
+	void * res;
+	res = *(void * *) mono_object_unbox (retval);
+	return res;
+}
+
+static MonoMethod *method_186 = NULL;
+void *
+native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw (id this, SEL sel, CGRect p0)
+{
+	void *arg_ptrs [1];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_186)
+		method_186 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_186)));
+		}
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_186, mthis, arg_ptrs, NULL);
+	return NULL;
+}
+
+static MonoMethod *method_187 = NULL;
+void *
+native_to_managed_trampoline_CoconutCalendarAdmin_CoconutClientViewController_ViewWillAppear (id this, SEL sel, bool p0)
+{
+	void *arg_ptrs [1];
+	MonoObject *mthis;
+	if (mono_domain_get () == NULL)
+		mono_jit_thread_attach (NULL);
+	if (!method_187)
+		method_187 = get_method_for_selector ([this class], sel).method->method;
+		mthis = NULL;
+		if (this) {
+			mthis = get_nsobject_with_type_for_ptr (this, false, mono_class_get_type (mono_method_get_class (method_187)));
+		}
+	arg_ptrs [0] = &p0;
+	mono_runtime_invoke (method_187, mthis, arg_ptrs, NULL);
+	return NULL;
 }
 
 
@@ -4776,8 +4857,8 @@ static MTClassMap __monotouch_class_map [] = {
 	{"MonoTouch.UIKit.UITextField+_UITextFieldDelegate", "MonoTouch.UIKit.UITextField+_UITextFieldDelegate, monotouch", 0},
 	{"AppDelegate", "CoconutCalendar.AppDelegate, CoconutCalendar", 0},
 	{"__UISwipeGestureRecognizer", "MonoTouch.UIKit.UISwipeGestureRecognizer+Callback, monotouch", 0},
+	{"MBProgressHUD.MTMBProgressHUD+_MBProgressHUDDelegate", "MBProgressHUD.MTMBProgressHUD+_MBProgressHUDDelegate, MBProgressHUD", 0},
 	{"NSDateFormatter", "MonoTouch.Foundation.NSDateFormatter, monotouch", 0},
-	{"CoconutCalendar.cc_Schedule_PickerModel", "CoconutCalendar.cc_Schedule_PickerModel, CoconutCalendar", 0},
 	{"MonoTouch.UIKit.UIActionSheet+_UIActionSheetDelegate", "MonoTouch.UIKit.UIActionSheet+_UIActionSheetDelegate, monotouch", 0},
 	{"UIApplication", "MonoTouch.UIKit.UIApplication, monotouch", 0},
 	{"UIBarButtonItem", "MonoTouch.UIKit.UIBarButtonItem, monotouch", 0},
@@ -4786,7 +4867,7 @@ static MTClassMap __monotouch_class_map [] = {
 	{"__UIGestureRecognizerParametrizedToken", "MonoTouch.UIKit.UIGestureRecognizer+ParametrizedDispatch, monotouch", 0},
 	{"__UIGestureRecognizerParameterlessToken", "MonoTouch.UIKit.UIGestureRecognizer+ParameterlessDispatch, monotouch", 0},
 	{"MonoTouch.UIKit.UIWebView+_UIWebViewDelegate", "MonoTouch.UIKit.UIWebView+_UIWebViewDelegate, monotouch", 0},
-	{"MBProgressHUD.MTMBProgressHUD+_MBProgressHUDDelegate", "MBProgressHUD.MTMBProgressHUD+_MBProgressHUDDelegate, MBProgressHUD", 0},
+	{"CoconutCalendar.cc_Schedule_PickerModel", "CoconutCalendar.cc_Schedule_PickerModel, CoconutCalendar", 0},
 	{"MonoTouch.Dialog.OwnerDrawnElement+OwnerDrawnCellView", "MonoTouch.Dialog.OwnerDrawnElement+OwnerDrawnCellView, MonoTouch.Dialog-1", 0},
 	{"MonoTouch.Dialog.RefreshTableHeaderView", "MonoTouch.Dialog.RefreshTableHeaderView, MonoTouch.Dialog-1", 0},
 	{"MBProgressHUD", "MBProgressHUD.MTMBProgressHUD, MBProgressHUD", 0},
@@ -4802,47 +4883,47 @@ static MTClassMap __monotouch_class_map [] = {
 	{"UIScrollView", "MonoTouch.UIKit.UIScrollView, monotouch", 0},
 	{"MonoTouch.Dialog.DialogViewController+Source", "MonoTouch.Dialog.DialogViewController+Source, MonoTouch.Dialog-1", 0},
 	{"UILabel", "MonoTouch.UIKit.UILabel, monotouch", 0},
-	{"UIControl", "MonoTouch.UIKit.UIControl, monotouch", 0},
 	{"UIAlertView", "MonoTouch.UIKit.UIAlertView, monotouch", 0},
 	{"UIActionSheet", "MonoTouch.UIKit.UIActionSheet, monotouch", 0},
+	{"CoconutCalendarViewController", "CoconutCalendar.CoconutCalendarViewController, CoconutCalendar", 0},
+	{"MBBarProgressView", "MBProgressHUD.MBBarProgressView, MBProgressHUD", 0},
 	{"escoz.CalendarMonthViewController", "escoz.CalendarMonthViewController, CoconutCalendar", 0},
 	{"escoz.CalendarDayView", "escoz.CalendarDayView, CoconutCalendar", 0},
-	{"escoz.MonthGridView", "escoz.MonthGridView, CoconutCalendar", 0},
-	{"CoconutCalendarViewController", "CoconutCalendar.CoconutCalendarViewController, CoconutCalendar", 0},
 	{"cc_Schedule", "CoconutCalendar.cc_Schedule, CoconutCalendar", 0},
 	{"cc_Client", "CoconutCalendar.cc_Client, CoconutCalendar", 0},
 	{"CoconutCalendar.cc_Schedule_AppointmentSource", "CoconutCalendar.cc_Schedule_AppointmentSource, CoconutCalendar", 0},
 	{"CoconutPickDateMonthViewController", "CoconutCalendarAdmin.CoconutPickDateMonthViewController, CoconutCalendar", 0},
 	{"escoz.CalendarMonthView", "escoz.CalendarMonthView, CoconutCalendar", 0},
-	{"UINavigationController", "MonoTouch.UIKit.UINavigationController, monotouch", 0},
+	{"escoz.MonthGridView", "escoz.MonthGridView, CoconutCalendar", 0},
+	{"UIControl", "MonoTouch.UIKit.UIControl, monotouch", 0},
 	{"UIActivityIndicatorView", "MonoTouch.UIKit.UIActivityIndicatorView, monotouch", 0},
-	{"UIWindow", "MonoTouch.UIKit.UIWindow, monotouch", 0},
-	{"MBBarProgressView", "MBProgressHUD.MBBarProgressView, MBProgressHUD", 0},
 	{"MonoTouch.UIKit.UITextView+_UITextViewDelegate", "MonoTouch.UIKit.UITextView+_UITextViewDelegate, monotouch", 0},
 	{"UITableViewCell", "MonoTouch.UIKit.UITableViewCell, monotouch", 0},
-	{"UIPickerView", "MonoTouch.UIKit.UIPickerView, monotouch", 0},
+	{"UIWindow", "MonoTouch.UIKit.UIWindow, monotouch", 0},
 	{"UISearchBar", "MonoTouch.UIKit.UISearchBar, monotouch", 0},
-	{"MonoTouch.Dialog.DialogViewController", "MonoTouch.Dialog.DialogViewController, MonoTouch.Dialog-1", 0},
+	{"UINavigationController", "MonoTouch.UIKit.UINavigationController, monotouch", 0},
+	{"UIPickerView", "MonoTouch.UIKit.UIPickerView, monotouch", 0},
 	{"cc_Schedule_AppointmentCell", "CoconutCalendar.cc_Schedule_AppointmentCell, CoconutCalendar", 0},
+	{"MonoTouch.Dialog.DialogViewController+SizingSource", "MonoTouch.Dialog.DialogViewController+SizingSource, MonoTouch.Dialog-1", 0},
+	{"MonoTouch.Dialog.DialogViewController", "MonoTouch.Dialog.DialogViewController, MonoTouch.Dialog-1", 0},
+	{"UIDatePicker", "MonoTouch.UIKit.UIDatePicker, monotouch", 0},
 	{"MonoTouch.Dialog.MessageElement+MessageCell", "MonoTouch.Dialog.MessageElement+MessageCell, MonoTouch.Dialog-1", 0},
 	{"MonoTouch.Dialog.OwnerDrawnElement+OwnerDrawnCell", "MonoTouch.Dialog.OwnerDrawnElement+OwnerDrawnCell, MonoTouch.Dialog-1", 0},
-	{"UITextView", "MonoTouch.UIKit.UITextView, monotouch", 0},
-	{"UIButton", "MonoTouch.UIKit.UIButton, monotouch", 0},
-	{"UIDatePicker", "MonoTouch.UIKit.UIDatePicker, monotouch", 0},
-	{"CoconutCalendar.cc_TapViewController", "CoconutCalendar.cc_TapViewController, CoconutCalendar", 0},
-	{"MonoTouch.Dialog.DialogViewController+SizingSource", "MonoTouch.Dialog.DialogViewController+SizingSource, MonoTouch.Dialog-1", 0},
-	{"UISwitch", "MonoTouch.UIKit.UISwitch, monotouch", 0},
 	{"UISlider", "MonoTouch.UIKit.UISlider, monotouch", 0},
+	{"CoconutCalendar.cc_TapViewController", "CoconutCalendar.cc_TapViewController, CoconutCalendar", 0},
+	{"UISwitch", "MonoTouch.UIKit.UISwitch, monotouch", 0},
+	{"UIButton", "MonoTouch.UIKit.UIButton, monotouch", 0},
 	{"UITextField", "MonoTouch.UIKit.UITextField, monotouch", 0},
-	{"UITableView", "MonoTouch.UIKit.UITableView, monotouch", 0},
 	{"MonoTouch.Dialog.BaseBooleanImageElement+TextWithImageCellView", "MonoTouch.Dialog.BaseBooleanImageElement+TextWithImageCellView, MonoTouch.Dialog-1", 0},
-	{"CoconutCalendar.cc_Schedule_Personal", "CoconutCalendar.cc_Schedule_Personal, CoconutCalendar", 0},
+	{"UITextView", "MonoTouch.UIKit.UITextView, monotouch", 0},
+	{"UITableView", "MonoTouch.UIKit.UITableView, monotouch", 0},
 	{"CoconutCalendar.cc_LoginViewController", "CoconutCalendar.cc_LoginViewController, CoconutCalendar", 0},
-	{"CoconutCalendar.cc_Schedule_AddMenue", "CoconutCalendar.cc_Schedule_AddMenue, CoconutCalendar", 0},
-	{"CoconutCalendarAdmin.CoconutClientAddViewController", "CoconutCalendarAdmin.CoconutClientAddViewController, CoconutCalendar", 0},
 	{"MonoTouch.Dialog.GlassButton", "MonoTouch.Dialog.GlassButton, MonoTouch.Dialog-1", 0},
-	{"CoconutCalendarAdmin.CoconutClientViewController", "CoconutCalendarAdmin.CoconutClientViewController, CoconutCalendar", 0},
+	{"CoconutCalendar.cc_Schedule_AddMenue", "CoconutCalendar.cc_Schedule_AddMenue, CoconutCalendar", 0},
 	{"CoconutCalendar.cc_Schedule_AddNew", "CoconutCalendar.cc_Schedule_AddNew, CoconutCalendar", 0},
+	{"CoconutCalendarAdmin.CoconutClientAddViewController", "CoconutCalendarAdmin.CoconutClientAddViewController, CoconutCalendar", 0},
+	{"CoconutCalendarAdmin.CoconutClientViewController", "CoconutCalendarAdmin.CoconutClientViewController, CoconutCalendar", 0},
+	{"CoconutCalendar.cc_Schedule_Personal", "CoconutCalendar.cc_Schedule_Personal, CoconutCalendar", 0},
 };
 
 static MTClass __monotouch_classes [] = {
@@ -4857,13 +4938,13 @@ static MTClass __monotouch_classes [] = {
 	{"UITableViewSource", "NSObject", 1, 1, 0},
 	{"AppDelegate", "NSObject", 1, 2, 0},
 	{"__UISwipeGestureRecognizer", "__UIGestureRecognizerToken", 1, 0, 0},
-	{"CoconutCalendar.cc_Schedule_PickerModel", "NSObject", 1, 4, 0},
+	{"MBProgressHUD.MTMBProgressHUD+_MBProgressHUDDelegate", "NSObject", 1, 2, 0},
 	{"MonoTouch.UIKit.UIActionSheet+_UIActionSheetDelegate", "NSObject", 1, 6, 0},
 	{"__UITapGestureRecognizer", "__UIGestureRecognizerToken", 1, 0, 0},
 	{"__UIGestureRecognizerParametrizedToken", "__UIGestureRecognizerToken", 1, 0, 0},
 	{"__UIGestureRecognizerParameterlessToken", "__UIGestureRecognizerToken", 1, 1, 0},
 	{"MonoTouch.UIKit.UIWebView+_UIWebViewDelegate", "NSObject", 1, 5, 0},
-	{"MBProgressHUD.MTMBProgressHUD+_MBProgressHUDDelegate", "NSObject", 1, 2, 0},
+	{"CoconutCalendar.cc_Schedule_PickerModel", "NSObject", 1, 4, 0},
 	{"MonoTouch.Dialog.OwnerDrawnElement+OwnerDrawnCellView", "UIView", 1, 1, 0},
 	{"MonoTouch.Dialog.RefreshTableHeaderView", "UIView", 1, 2, 0},
 	{"MonoTouch.Dialog.MessageSummaryView", "UIView", 1, 2, 0},
@@ -4871,30 +4952,30 @@ static MTClass __monotouch_classes [] = {
 	{"MonoTouch.Dialog.DateTimeElement+MyViewController", "UIViewController", 1, 3, 0},
 	{"MonoTouch.Dialog.DialogViewController+SearchDelegate", "NSObject", 1, 5, 0},
 	{"MonoTouch.Dialog.DialogViewController+Source", "NSObject", 1, 16, 0},
+	{"CoconutCalendarViewController", "UIViewController", 1, 3, 0},
 	{"escoz.CalendarMonthViewController", "UIViewController", 1, 2, 0},
 	{"escoz.CalendarDayView", "UIView", 1, 2, 0},
-	{"escoz.MonthGridView", "UIView", 1, 3, 0},
-	{"CoconutCalendarViewController", "UIViewController", 1, 3, 0},
 	{"cc_Schedule", "UIViewController", 1, 37, 0},
 	{"cc_Client", "UIViewController", 1, 3, 0},
-	{"CoconutCalendar.cc_Schedule_AppointmentSource", "NSObject", 1, 6, 0},
+	{"CoconutCalendar.cc_Schedule_AppointmentSource", "NSObject", 1, 7, 0},
 	{"CoconutPickDateMonthViewController", "UIViewController", 1, 5, 0},
-	{"escoz.CalendarMonthView", "UIView", 1, 4, 0},
+	{"escoz.CalendarMonthView", "UIView", 1, 6, 0},
+	{"escoz.MonthGridView", "UIView", 1, 3, 0},
 	{"MonoTouch.UIKit.UITextView+_UITextViewDelegate", "NSObject", 1, 23, 0},
+	{"cc_Schedule_AppointmentCell", "UITableViewCell", 1, 8, 0},
+	{"MonoTouch.Dialog.DialogViewController+SizingSource", "MonoTouch.Dialog.DialogViewController+Source", 1, 1, 0},
 	{"MonoTouch.Dialog.DialogViewController", "UITableViewController", 1, 5, 0},
-	{"cc_Schedule_AppointmentCell", "UITableViewCell", 1, 6, 0},
 	{"MonoTouch.Dialog.MessageElement+MessageCell", "UITableViewCell", 1, 2, 0},
 	{"MonoTouch.Dialog.OwnerDrawnElement+OwnerDrawnCell", "UITableViewCell", 1, 1, 0},
 	{"CoconutCalendar.cc_TapViewController", "UITabBarController", 1, 2, 0},
-	{"MonoTouch.Dialog.DialogViewController+SizingSource", "MonoTouch.Dialog.DialogViewController+Source", 1, 1, 0},
 	{"MonoTouch.Dialog.BaseBooleanImageElement+TextWithImageCellView", "UITableViewCell", 1, 1, 0},
-	{"CoconutCalendar.cc_Schedule_Personal", "MonoTouch.Dialog.DialogViewController", 1, 0, 0},
 	{"CoconutCalendar.cc_LoginViewController", "MonoTouch.Dialog.DialogViewController", 1, 1, 0},
-	{"CoconutCalendar.cc_Schedule_AddMenue", "MonoTouch.Dialog.DialogViewController", 1, 0, 0},
-	{"CoconutCalendarAdmin.CoconutClientAddViewController", "MonoTouch.Dialog.DialogViewController", 1, 0, 0},
 	{"MonoTouch.Dialog.GlassButton", "UIButton", 1, 6, 0},
+	{"CoconutCalendar.cc_Schedule_AddMenue", "MonoTouch.Dialog.DialogViewController", 1, 0, 0},
+	{"CoconutCalendar.cc_Schedule_AddNew", "MonoTouch.Dialog.DialogViewController", 1, 0, 0},
+	{"CoconutCalendarAdmin.CoconutClientAddViewController", "MonoTouch.Dialog.DialogViewController", 1, 0, 0},
 	{"CoconutCalendarAdmin.CoconutClientViewController", "MonoTouch.Dialog.DialogViewController", 1, 1, 0},
-	{"CoconutCalendar.cc_Schedule_AddNew", "MonoTouch.Dialog.DialogViewController", 1, 1, 0},
+	{"CoconutCalendar.cc_Schedule_Personal", "MonoTouch.Dialog.DialogViewController", 1, 0, 0},
 };
 
 static MTIvar __monotouch_ivars [] = {
@@ -4970,10 +5051,8 @@ static MTMethod __monotouch_methods [] = {
 	{"init","@@:",0, &native_to_managed_trampoline_MonoTouch_UIKit_UITableViewSource__ctor},
 	{"init","@@:",0, &native_to_managed_trampoline_CoconutCalendar_AppDelegate__ctor},
 	{"application:didFinishLaunchingWithOptions:","B@:@@",0, &native_to_managed_trampoline_CoconutCalendar_AppDelegate_FinishedLaunching},
-	{"pickerView:numberOfRowsInComponent:","i@:@i",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetRowsInComponent},
-	{"numberOfComponentsInPickerView:","i@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetComponentCount},
-	{"pickerView:titleForRow:forComponent:","@@:@ii",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetTitle},
-	{"pickerView:didSelectRow:inComponent:","v@:@ii",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_Selected},
+	{"init","@@:",0, &native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate__ctor},
+	{"hudWasHidden:","v@:@",0, &native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate_HudWasHidden},
 	{"actionSheet:clickedButtonAtIndex:","v@:@i",0, &native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Clicked},
 	{"actionSheetCancel:","v@:@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_Canceled},
 	{"willPresentActionSheet:","v@:@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UIActionSheet__UIActionSheetDelegate_WillPresent},
@@ -4986,8 +5065,10 @@ static MTMethod __monotouch_methods [] = {
 	{"webViewDidStartLoad:","v@:@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadStarted},
 	{"webViewDidFinishLoad:","v@:@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadingFinished},
 	{"webView:didFailLoadWithError:","v@:@@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UIWebView__UIWebViewDelegate_LoadFailed},
-	{"init","@@:",0, &native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate__ctor},
-	{"hudWasHidden:","v@:@",0, &native_to_managed_trampoline_MBProgressHUD_MTMBProgressHUD__MBProgressHUDDelegate_HudWasHidden},
+	{"pickerView:numberOfRowsInComponent:","i@:@i",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetRowsInComponent},
+	{"numberOfComponentsInPickerView:","i@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetComponentCount},
+	{"pickerView:titleForRow:forComponent:","@@:@ii",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_GetTitle},
+	{"pickerView:didSelectRow:inComponent:","v@:@ii",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_PickerModel_Selected},
 	{"drawRect:","v@:{RectangleF=ffff}",0, &native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCellView_Draw},
 	{"layoutSubviews","v@:",0, &native_to_managed_trampoline_MonoTouch_Dialog_RefreshTableHeaderView_LayoutSubviews},
 	{"drawRect:","v@:{RectangleF=ffff}",0, &native_to_managed_trampoline_MonoTouch_Dialog_RefreshTableHeaderView_Draw},
@@ -5018,16 +5099,13 @@ static MTMethod __monotouch_methods [] = {
 	{"scrollViewDidScroll:","v@:@",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_Scrolled},
 	{"scrollViewWillBeginDragging:","v@:@",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_DraggingStarted},
 	{"scrollViewDidEndDragging:willDecelerate:","v@:@B",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_Source_DraggingEnded},
+	{"init","@@:",0, &native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController__ctor},
+	{"didReceiveMemoryWarning","v@:",0, &native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_DidReceiveMemoryWarning},
+	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_ViewDidLoad},
 	{"init","@@:",0, &native_to_managed_trampoline_escoz_CalendarMonthViewController__ctor},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_escoz_CalendarMonthViewController_ViewDidLoad},
 	{"init","@@:",0, &native_to_managed_trampoline_escoz_CalendarDayView__ctor},
 	{"drawRect:","v@:{RectangleF=ffff}",0, &native_to_managed_trampoline_escoz_CalendarDayView_Draw},
-	{"touchesBegan:withEvent:","v@:@@",0, &native_to_managed_trampoline_escoz_MonthGridView_TouchesBegan},
-	{"touchesMoved:withEvent:","v@:@@",0, &native_to_managed_trampoline_escoz_MonthGridView_TouchesMoved},
-	{"touchesEnded:withEvent:","v@:@@",0, &native_to_managed_trampoline_escoz_MonthGridView_TouchesEnded},
-	{"init","@@:",0, &native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController__ctor},
-	{"didReceiveMemoryWarning","v@:",0, &native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_DidReceiveMemoryWarning},
-	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_CoconutCalendar_CoconutCalendarViewController_ViewDidLoad},
 	{"_botView","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__botView},
 	{"set_botView:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_set__botView},
 	{"_dataPicker","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_get__dataPicker},
@@ -5074,15 +5152,21 @@ static MTMethod __monotouch_methods [] = {
 	{"tableView:cellForRowAtIndexPath:","@@:@@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_GetCell},
 	{"tableView:didSelectRowAtIndexPath:","v@:@@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_RowSelected},
 	{"tableView:accessoryButtonTappedForRowWithIndexPath:","v@:@@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_AccessoryButtonTapped},
+	{"tableView:heightForRowAtIndexPath:","f@:@@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentSource_GetHeightForRow},
 	{"monthView","@@:",0, &native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_get_monthView},
 	{"setMonthView:","v@:@",0, &native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_set_monthView},
 	{"init","@@:",0, &native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController__ctor},
 	{"didReceiveMemoryWarning","v@:",0, &native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_DidReceiveMemoryWarning},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_CoconutCalendarAdmin_CoconutPickDateMonthViewController_ViewDidLoad},
 	{"init","@@:",0, &native_to_managed_trampoline_escoz_CalendarMonthView__ctor},
+	{"SwipeLeft","v@:",0, &native_to_managed_trampoline_escoz_CalendarMonthView_viewSwipeLeft},
+	{"SwipeRight","v@:",0, &native_to_managed_trampoline_escoz_CalendarMonthView_viewSwipeRight},
 	{"setNeedsDisplay","v@:",0, &native_to_managed_trampoline_escoz_CalendarMonthView_SetNeedsDisplay},
 	{"layoutSubviews","v@:",0, &native_to_managed_trampoline_escoz_CalendarMonthView_LayoutSubviews},
 	{"drawRect:","v@:{RectangleF=ffff}",0, &native_to_managed_trampoline_escoz_CalendarMonthView_Draw},
+	{"touchesBegan:withEvent:","v@:@@",0, &native_to_managed_trampoline_escoz_MonthGridView_TouchesBegan},
+	{"touchesMoved:withEvent:","v@:@@",0, &native_to_managed_trampoline_escoz_MonthGridView_TouchesMoved},
+	{"touchesEnded:withEvent:","v@:@@",0, &native_to_managed_trampoline_escoz_MonthGridView_TouchesEnded},
 	{"init","@@:",0, &native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate__ctor},
 	{"textViewShouldBeginEditing:","B@:@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldBeginEditing},
 	{"textViewShouldEndEditing:","B@:@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ShouldEndEditing},
@@ -5106,23 +5190,25 @@ static MTMethod __monotouch_methods [] = {
 	{"scrollViewDidZoom:","v@:@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_DidZoom},
 	{"scrollViewWillBeginZooming:withView:","v@:@@",0, &native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_ZoomingStarted},
 	{"scrollViewWillEndDragging:withVelocity:targetContentOffset:","v@:@{PointF=ff}^{PointF=ff}",0, &native_to_managed_trampoline_MonoTouch_UIKit_UITextView__UITextViewDelegate_WillEndDragging},
+	{"labelService","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_labelService},
+	{"setLabelService:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_labelService},
+	{"labelStart","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_labelStart},
+	{"setLabelStart:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_labelStart},
+	{"serviceNameLabel","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_serviceNameLabel},
+	{"setServiceNameLabel:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_serviceNameLabel},
+	{"startTimeLabel","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_startTimeLabel},
+	{"setStartTimeLabel:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_startTimeLabel},
+	{"tableView:heightForRowAtIndexPath:","f@:@@",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_GetHeightForRow},
 	{"shouldAutorotateToInterfaceOrientation:","B@:i",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ShouldAutorotateToInterfaceOrientation},
 	{"didRotateFromInterfaceOrientation:","v@:i",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_DidRotate},
 	{"loadView","v@:",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_LoadView},
 	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillAppear},
 	{"viewWillDisappear:","v@:B",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_ViewWillDisappear},
-	{"endTimeLabel","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_endTimeLabel},
-	{"setEndTimeLabel:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_endTimeLabel},
-	{"serviceNameLabel","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_serviceNameLabel},
-	{"setServiceNameLabel:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_serviceNameLabel},
-	{"startTimeLabel","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_get_startTimeLabel},
-	{"setStartTimeLabel:","v@:@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AppointmentCell_set_startTimeLabel},
 	{"init","@@:",0, &native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell__ctor},
 	{"layoutSubviews","v@:",0, &native_to_managed_trampoline_MonoTouch_Dialog_MessageElement_MessageCell_LayoutSubviews},
 	{"layoutSubviews","v@:",0, &native_to_managed_trampoline_MonoTouch_Dialog_OwnerDrawnElement_OwnerDrawnCell_LayoutSubviews},
 	{"init","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_TapViewController__ctor},
 	{"viewDidLoad","v@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_TapViewController_ViewDidLoad},
-	{"tableView:heightForRowAtIndexPath:","f@:@@",0, &native_to_managed_trampoline_MonoTouch_Dialog_DialogViewController_SizingSource_GetHeightForRow},
 	{"layoutSubviews","v@:",0, &native_to_managed_trampoline_MonoTouch_Dialog_BaseBooleanImageElement_TextWithImageCellView_LayoutSubviews},
 	{"init","@@:",0, &native_to_managed_trampoline_CoconutCalendar_cc_LoginViewController__ctor},
 	{"isEnabled","B@:",0, &native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_get_Enabled},
@@ -5132,7 +5218,6 @@ static MTMethod __monotouch_methods [] = {
 	{"continueTrackingWithTouch:withEvent:","B@:@@",0, &native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_ContinueTracking},
 	{"drawRect:","v@:{RectangleF=ffff}",0, &native_to_managed_trampoline_MonoTouch_Dialog_GlassButton_Draw},
 	{"viewWillAppear:","v@:B",0, &native_to_managed_trampoline_CoconutCalendarAdmin_CoconutClientViewController_ViewWillAppear},
-	{"tableView:cellForRowAtIndexPath:","@@:@@",0, &native_to_managed_trampoline_CoconutCalendar_cc_Schedule_AddNew_GetCell},
 };
 
 static MTProperty __monotouch_properties [] = {

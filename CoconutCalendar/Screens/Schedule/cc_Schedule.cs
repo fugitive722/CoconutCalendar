@@ -13,7 +13,7 @@ namespace CoconutCalendar
 	public partial class cc_Schedule : UIViewController
 	{
 	
-
+		Boolean firstTime = true;
 		JsonValue _curLocation;
 		JsonValue _curStaff;
 
@@ -56,7 +56,8 @@ namespace CoconutCalendar
 			initLocation();
 			_pickerView.Hidden = false; 
 
-
+			_staffBtn.SetTitle(HttpWebRequestClient.Staff[0]["last_name"].ToString(),UIControlState.Normal);
+			_curStaff = HttpWebRequestClient.Staff[0];
 
 
 
@@ -64,6 +65,7 @@ namespace CoconutCalendar
 
 				initLocation();
 				_pickerView.Hidden = false;
+
 			};
 
 			_staffBtn.TouchUpInside += (object sender, EventArgs e) => {
@@ -117,6 +119,7 @@ namespace CoconutCalendar
 				createAppointmentSourceForTableView();
 					};
 
+		
 //				},TaskScheduler.FromCurrentSynchronizationContext()
 //		);
 
@@ -139,6 +142,12 @@ namespace CoconutCalendar
 					_botView.Hidden = true;
 					var staffPickerModel = new cc_Schedule_PickerModel ("Staff",HttpWebRequestClient.Staff);
 					_dataPicker.Model = staffPickerModel;
+
+			if(firstTime){
+
+				firstTime = false;
+
+			}
 
 					staffPickerModel.ValueSelected += (object sender, EventArgs e) => {
 						_topView.Hidden = false;

@@ -126,13 +126,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="CoconutCalendarViewController.cs" />
-    <Compile Include="CoconutCalendarViewController.designer.cs">
-      <DependentUpon>CoconutCalendarViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\Login\cc_LoginViewController.cs" />
     <Compile Include="WebRequest\HttpWebRequestClient.cs" />
-    <Compile Include="cc_TapViewController.cs" />
     <Compile Include="Screens\Schedule\cc_Schedule.cs" />
     <Compile Include="Screens\Schedule\cc_Schedule.designer.cs">
       <DependentUpon>cc_Schedule.cs</DependentUpon>
@@ -157,13 +152,18 @@
     <Compile Include="Screens\Schedule\CalendarMonthView.cs" />
     <Compile Include="Screens\Schedule\CalendarMonthViewController.cs" />
     <Compile Include="Screens\Schedule\cc_Schedule_Personal.cs" />
+    <Compile Include="Screens\cc_TapViewController.cs" />
+    <Compile Include="Screens\CoconutCalendarViewController.cs" />
+    <Compile Include="Screens\CoconutCalendarViewController.designer.cs">
+      <DependentUpon>CoconutCalendarViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="CoconutCalendarViewController.xib" />
     <InterfaceDefinition Include="Screens\Schedule\cc_Schedule.xib" />
     <InterfaceDefinition Include="Screens\Client\cc_Client.xib" />
     <InterfaceDefinition Include="Screens\Schedule\cc_Schedule_AppointmentCell.xib" />
     <InterfaceDefinition Include="Screens\Schedule\CoconutPickDateMonthViewController.xib" />
+    <InterfaceDefinition Include="Screens\CoconutCalendarViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
