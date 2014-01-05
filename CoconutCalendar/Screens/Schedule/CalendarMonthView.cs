@@ -59,8 +59,8 @@ namespace escoz
 		private MonthGridView _monthGridView;
         private UIButton _leftButton, _rightButton;
 
-		private UISwipeGestureRecognizer _swipeLeft;
-		private UISwipeGestureRecognizer _swipeRight;
+		private UISwipeGestureRecognizer _swipeUp;
+		private UISwipeGestureRecognizer _swipeDown;
 
         public CalendarMonthView() : base(new RectangleF(0, 0, 320, 400))
         {
@@ -68,31 +68,31 @@ namespace escoz
 			CurrentMonthYear = new DateTime(CurrentDate.Year, CurrentDate.Month, 1);
 
 
-			if(_swipeLeft == null){
-				_swipeLeft = new UISwipeGestureRecognizer (this,new MonoTouch.ObjCRuntime.Selector("SwipeLeft"));
-				_swipeLeft.Direction = UISwipeGestureRecognizerDirection.Left;
-				_swipeLeft.NumberOfTouchesRequired = 1;
+			if(_swipeUp == null){
+				_swipeUp = new UISwipeGestureRecognizer (this,new MonoTouch.ObjCRuntime.Selector("SwipeUp"));
+				_swipeUp.Direction = UISwipeGestureRecognizerDirection.Up;
+				_swipeUp.NumberOfTouchesRequired = 1;
 			}
 
-			if(_swipeRight == null){
-				_swipeRight = new UISwipeGestureRecognizer (this,new MonoTouch.ObjCRuntime.Selector("SwipeRight"));
-				_swipeRight.Direction = UISwipeGestureRecognizerDirection.Right;
-				_swipeRight.NumberOfTouchesRequired = 1;
+			if(_swipeDown == null){
+				_swipeDown = new UISwipeGestureRecognizer (this,new MonoTouch.ObjCRuntime.Selector("SwipeDown"));
+				_swipeDown.Direction = UISwipeGestureRecognizerDirection.Down;
+				_swipeDown.NumberOfTouchesRequired = 1;
 			}
 
-			this.AddGestureRecognizer (_swipeLeft);
-			this.AddGestureRecognizer (_swipeRight);
+			this.AddGestureRecognizer (_swipeUp);
+			this.AddGestureRecognizer (_swipeDown);
 		}
 
-		[Export("SwipeLeft")]
+		[Export("SwipeUp")]
 		public void viewSwipeLeft (){
-			Console.Out.WriteLine ("Swipe Left Made");
+			Console.Out.WriteLine ("Swipe Up Made");
 			MoveCalendarMonths(false, true);
 		}
 
-		[Export("SwipeRight")]
+		[Export("SwipeDown")]
 		public void viewSwipeRight (){
-			Console.Out.WriteLine ("Swipe Right Made");
+			Console.Out.WriteLine ("Swipe Down Made");
 			MoveCalendarMonths(true, true);
 		}
 
@@ -178,7 +178,8 @@ namespace escoz
 				pointsToMove -= 44;
 			
 			gridToMove.Frame = new RectangleF(new PointF(0, pointsToMove), gridToMove.Frame.Size);
-			
+			//gridToMove.Frame = new RectangleF(new PointF(0, 0), gridToMove.Frame.Size);
+
 			_scrollView.AddSubview(gridToMove);
 			
 			if (animated){
@@ -214,7 +215,8 @@ namespace escoz
 			var grid = new MonthGridView(this, date);
 			grid.CurrentDate = CurrentDate;
 			grid.BuildGrid();
-			grid.Frame = new RectangleF(0, 0, 320, 400);
+			//grid.Frame = new RectangleF(0, 0, 320, 400);
+			grid.Frame = new RectangleF (0,0,320,400);
 			return grid;
 		}
 		
