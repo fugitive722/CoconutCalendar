@@ -17,12 +17,13 @@ namespace CoconutCalendar
 	{
 		JsonValue _appointment;
 
-		StringElement _client;
+		StyledStringElement _client;
 		StringElement _date;
 		CoconutLocationRadioGroup _locationRadioGroup;
 		CoconutLocationRadioGroup _serviceRadioGroup;
 		RadioGroup _staffRadioGroup;
 		int SelectedLocationIndex = 0;
+		CoconutEntryElement _servicePrice;
 		StringElement _start;
 		StringElement _end;
 		BooleanElement _walkedIn;
@@ -35,6 +36,8 @@ namespace CoconutCalendar
 		Section serviceNames;
 		Section staffNames;
 
+		//UIGestureRecognizer _tapGesture;
+
 		List<JsonValue> serviceNamesList = new List<JsonValue> ();
 		List<JsonValue> staffNamesList = new List<JsonValue> ();
 		//List<JsonValue> locationList = new List<JsonValue> ();
@@ -43,6 +46,7 @@ namespace CoconutCalendar
 		List<JsonValue> staffList = new List<JsonValue> ();
 
 
+	
 		//JsonValue servicesByID;
 		//double duration;
 
@@ -87,18 +91,42 @@ namespace CoconutCalendar
 
 
 			// set up client;
-			_client = new StringElement ("Client", ()=>{
-				var c = new CoconutClientViewController(false);
-				this.NavigationController.PushViewController(c,true);
-				c.onSelectedClient += (object sender, EventArgs e) => {
-					_client.Value = c.selectedClient["first_name"] + " " + c.selectedClient["last_name"];
-					this.Root.Reload(sectionG,UITableViewRowAnimation.None);
+			if(client){
+//				_client = new StringElement ("Client", ()=>{
+//					var c = new CoconutClientViewController(false);
+//					this.NavigationController.PushViewController(c,true);
+//					c.onSelectedClient += (object sender, EventArgs e) => {
+//						_client.Value = c.selectedClient["first_name"] + " " + c.selectedClient["last_name"];
+//						this.Root.Reload(sectionG,UITableViewRowAnimation.None);
+//						//setAppointment(appointment);
+//					};
+//				});
+//
+//				_client.Value = "Click to Pick";
+//				sectionG.Add (_client);
 
+			
+//				var clientRoot = new RootElement("Client", (RootElement e)=>{
+//					e = new RootElement("Hello ");
+//					return  new CoconutClientViewController(false);
+//				});
+
+				_client = new StyledStringElement ("Client","Click to Pick",UITableViewCellStyle.Value1);
+				_client.Font = UIFont.FromName ("Helvetica",17f);
+				_client.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+				_client.Tapped += () => {
+					var c = new CoconutClientViewController(false);
+					this.NavigationController.PushViewController(c,true);
+					c.onSelectedClient += (object sender, EventArgs e) => {
+						_client.Value = c.selectedClient["first_name"] + " " + c.selectedClient["last_name"];
+						this.Root.Reload(sectionG,UITableViewRowAnimation.None);
+						//setAppointment(appointment);
+					};
 				};
-			});
 
-			_client.Value = "Click to Pick";
-			sectionG.Add (_client);
+				sectionG.Add (_client);
+			}
+
 
 
 			// set up date
@@ -109,7 +137,6 @@ namespace CoconutCalendar
 
 			// set up location
 			_locationRadioGroup = new CoconutLocationRadioGroup (SelectedLocationIndex);
-
 
 			var locations = HttpWebRequestClient.Location;
 			var locationRoot = new RootElement ("Location",_locationRadioGroup);
@@ -149,7 +176,11 @@ namespace CoconutCalendar
 
 				var duration = getServiceDurationByID ();
 				var endT = dt.AddMinutes(duration);
-				_end.Value = endT.TimeOfDay.ToString();
+				_end.Value = new TimeElement("end",getDatetimeFromHoursString(stripOffQuoatation(endT.TimeOfDay.ToString()))).Value;
+
+
+				//var et = getDatetimeFromHoursString(stripOffQuoatation (appointment["end"].ToString().Split(' ')[1]));
+				//_end.Value = new TimeElement ("end",et).Value;
 
 				//this.Root.Reload(sectionG,UITableViewRowAnimation.None);
 
@@ -185,7 +216,16 @@ namespace CoconutCalendar
 			staffRoot.Add (staffNames);
 			sectionG.Add (staffRoot);
 
+			// service price
+			_servicePrice = new CoconutEntryElement ("Service Price",string.Empty,string.Empty){
 
+			};
+			_servicePrice.Value = getServicePriceByID().ToString();
+			_servicePrice.KeyboardType = UIKeyboardType.NumberPad;
+			_servicePrice.TextAlignment = UITextAlignment.Right;
+
+			sectionG.Add (_servicePrice);
+			 
 			// set up start time
 			_start = new StringElement ("Start",new TimeElement("start",dt).Value);
 			sectionG.Add (_start);
@@ -274,11 +314,14 @@ namespace CoconutCalendar
 
 			if(appointment != null){
 				setAppointment (_appointment);
-				//this.Root.Reload (sectionG,UITableViewRowAnimation.None);
+				this.Root.Reload (sectionG,UITableViewRowAnimation.None);
 				//this.Root.Reload (noteS,UITableViewRowAnimation.None);
 			}
 
-
+//			var _tapGesture = new UITapGestureRecognizer (()=>{
+//			});
+//
+//			this.View.AddGestureRecognizer (_tapGesture);
 		}
 
 		public void createDynamicLocationServiceStaffSectionSource (JsonValue location)
@@ -357,14 +400,24 @@ namespace CoconutCalendar
 		}
 
 		public double getServiceDurationByID(){
-			var duration = HttpWebRequestClient.Instance.getServiceDurationByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
-			return duration;
+			var duration = HttpWebRequestClient.Instance.getServiceDurationAndPriceByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
+			return duration[0];
 		}
+
+		public double getServicePriceByID(){
+			var price = HttpWebRequestClient.Instance.getServiceDurationAndPriceByID (HttpWebRequestClient.Location[SelectedLocationIndex]["service"][_serviceRadioGroup.Selected]["id"]);
+			return price[1];
+		}
+
 
 
 		public void setAppointment (JsonValue appointment) {
 			_client.Value = appointment ["client"][0]["first_name"]+" "+appointment ["client"][0]["last_name"];
-			_date.Value = appointment["start"].ToString().Split(' ')[0];
+
+			var dd = getDatetimeFromDayString(stripOffQuoatation (appointment["start"].ToString().Split(' ')[0]));
+
+			_date.Value = string.Format ("{0}, {1}-{2}-{3}",dd.DayOfWeek,dd.Year,dd.Month,dd.Day);
+			//_date.Value = appointment["start"].ToString().Split(' ')[0];
 
 			for(var i=0; i< HttpWebRequestClient.Location.Count; i++) {
 				if(HttpWebRequestClient.Location[i]["id"].ToString() == appointment["location_id"].ToString()){
@@ -387,8 +440,14 @@ namespace CoconutCalendar
 				}
 			}
 
-			_start.Value = appointment["start"].ToString().Split(' ')[1];
-			_end.Value = appointment["end"].ToString().Split(' ')[1];
+
+			//_start = new StringElement ("Start",new TimeElement("start",dt).Value);
+
+			var st = getDatetimeFromHoursString(stripOffQuoatation (appointment["start"].ToString().Split(' ')[1]));
+			_start.Value = new TimeElement ("start",st).Value;
+
+			//var et = getDatetimeFromHoursString(stripOffQuoatation (appointment["end"].ToString().Split(' ')[1]));
+			//_end.Value = new TimeElement ("end",et).Value;
 
 			if (appointment ["client"][0]["appointmentclient"]["walk_in"].ToString() == "0") {
 				_walkedIn.Value = false;
@@ -416,8 +475,26 @@ namespace CoconutCalendar
 			return _spinner;
 		}
 
+		public string stripOffQuoatation(string s)
+		{
+			return s.Replace ("\"",string.Empty);
+		}
+
+		public DateTime getDatetimeFromDayString (string s){
+			var tempS = s.Split(' ');
+			return new DateTime (Convert.ToInt32(tempS [0].Split('-')[0]),Convert.ToInt32(tempS [0].Split('-')[1]),Convert.ToInt32(tempS [0].Split('-')[2]));
+
+		}
+
+		public DateTime getDatetimeFromHoursString (string s){
+		
+			return new DateTime (2000,01,01,Convert.ToInt32(s.Split(':')[0]),Convert.ToInt32(s.Split(':')[1]),Convert.ToInt32(s.Split(':')[2]));
+		}
+
 
 	}
+
+
 
 	public class CoconutLocationRadioGroup : RadioGroup {
 		public int selectLocation;
@@ -439,26 +516,51 @@ namespace CoconutCalendar
 		}
 	}
 
-	public class CoconutSlider : FloatElement{
-
-		public CoconutSlider(float f) : base(null,null,f){
-			this.MinValue = 0f;
-			this.MaxValue = 100f;
-			this.Value = f;
-			this.Caption = "Hello World";
+	public class CoconutClientRadioGroup : RadioGroup {
+		public CoconutClientRadioGroup (int i) : base (i){
 		}
 
+//		public override void Selected (DialogViewController dvc, UITableView tableView, NSIndexPath indexPath)
+//		{
+//			base.Selected (dvc, tableView, indexPath);
+//		}
 
-
-		public override string ToString ()
-		{
-			return string.Format ("[CoconutSlider]");
-
-		}
-		public event EventHandler<EventArgs> OnSelected;
 	}
 
+//	public class CoconutSlider : FloatElement{
+//
+//		public CoconutSlider(float f) : base(null,null,f){
+//			this.MinValue = 0f;
+//			this.MaxValue = 100f;
+//			this.Value = f;
+//			this.Caption = "Hello World";
+//		}
+//
+//
+//
+//		public override string ToString ()
+//		{
+//			return string.Format ("[CoconutSlider]");
+//
+//		}
+//		public event EventHandler<EventArgs> OnSelected;
+//	}
 
+
+	public class CoconutEntryElement : EntryElement
+	{
+		public CoconutEntryElement (string c, string p, string v): base(c,p,v){
+		
+		}
+
+		protected override UITextField CreateTextField (RectangleF frame)
+		{
+			var t = base.CreateTextField (frame);
+			t.TextColor = UIColor.LightGray;
+			return t;
+		}
+	
+	}
 
 	public class FloatElementEx : Element
 	{

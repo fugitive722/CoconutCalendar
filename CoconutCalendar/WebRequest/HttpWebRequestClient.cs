@@ -158,7 +158,7 @@ namespace CoconutCalendar
 			
 		}
 
-		public double getServiceDurationByID(int id){
+		public List<double> getServiceDurationAndPriceByID(int id){
 
 			var url = string.Format ("http://mobile.demo.coconutcalendar.com/api/1.1/services/{0}.json?&access_token=e484196ed3214e886fd0cbae1a342617866f34eb",id);
 			using (WebClient wc = new WebClient ()) {
@@ -168,7 +168,14 @@ namespace CoconutCalendar
 				//var a = new JsonValue ();
 				var a = jsonResponse["data"]["service"][0]["duration"];
 				var b = Convert.ToDouble(a.ToString().Replace("\"",string.Empty));
-				return b;
+
+				var c = jsonResponse["data"]["service"][0]["price"];
+				var d = Convert.ToDouble(c.ToString().Replace("\"",string.Empty));
+
+				var rtn = new List<double> ();
+				rtn.Add (b);
+				rtn.Add (d);
+				return rtn;
 			};	
 		}
 
